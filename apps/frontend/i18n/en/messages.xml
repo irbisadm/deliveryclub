@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2013-07-13T14:53:24Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Что нового в системе?</source>
+        <target>Whats new in system?</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Подробнее</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Люди о нас</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Рестораны</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Бизнес-ланч</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Чешская кухня</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Итальянская кухня</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Здоровое питание</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Контакты</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

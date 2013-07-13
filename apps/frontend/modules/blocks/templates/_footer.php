@@ -1,20 +1,21 @@
+<?php use_helper('I18N') ?>
 <footer>
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span7">
-            <h2 class="center-responsive">What's new in our system?</h2>
+            <h2 class="center-responsive"><?=__('Что нового в системе?')?></h2>
             <div class="tweet">
               <p><span>@Olipizza</span> Sed eget dui enim, sit amet venenatis purus. Phasellus vel libero nunc, in blandit nunc. Sed eget dui enim, sit amet venenatis purus.</p>
             </div>
             <p>Nulla fermentum enim a turpis auctor at mollis nunc ullamcorper. In sed nisi odio. Ut ut purus diam. Nam venenatis, est eget faucibus posuere, arcu turpis blandit velit, sed pretium ante libero ut erat.</p>
             <p style="text-align: right; margin-top: 0;">
               <a href="#" class="button button-small">
-                <span class="button-text">Read more</span>
+                <span class="button-text"><?=__('Подробнее')?></span>
               </a>
             </p>
           </div>
           <div class="span5">
-            <h2 class="center-responsive">People about us</h2>
+            <h2 class="center-responsive"><?=__('Люди о нас')?></h2>
             <div class="comment-author">
               <img src="/images/frontend/women1.png" alt="">
               <p class="date">19 July 2012</p>

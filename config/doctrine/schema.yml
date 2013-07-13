@@ -1,130 +1,385 @@
-ABUser:                # внешняя таблица
+# Объект для ресторана
+Partners:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
   columns:
-    id:              integer      
-    indent:          string(8)    
-    sign_stream:     integer   # поток, с которого скачали
-    sign_site:      integer    # сайт, с которого скачали
-    banned:        boolean
-    last_active:    datetime
-    build_uid:      string
-    phone_number:    string
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name: 
+      type:     string(255)
+      notnull:  true
+    descripton: 
+      type:     string
+      default:  ""
+    mainCookTypeId: 
+      type:     integer
+      notnull:  true
+    long: 
+      type:     decimal
+      notnull:  true
+    lat:  
+      type:     decimal
+      notnull:  true
+    active: 
+      type:     boolean
+      default:  true
+    validateResult:
+      type:     enum
+      values:   ["Not validated","Approved","Canceled"]
+    address:
+      type:     string
+      notnull:  true
+    creatorId:
+      type:     integer
+      notnull:  true
+    lastEditorId:
+      type:     integer
+      notnull:  true
+    selfDelivery:
+      type:     boolean
+      default:  false
+      notnull:  true
+    notyfyEmail:
+      type:     string(255)
+      notnull:  true
+    notyfyPhone:
+      type:     string(255)
+      notnull:  true
 
-PayIncome:            
+# Время работы ресторана
+WorkTime:
+  options:
+    type:     MyISAM
+    collate:  utf8_unicode_ci
+    charset:  utf8
+  actAs: 
+    Timestampable: ~
   columns:
-    id:          integer
-    abuser_id:      integer    # ссылка на abuser
-    stream_id:      integer    # ссылка на поток
-    amount:        decimal    # полная сумма
-    system_pay:      decimal    # сумма системы
-    partner_pay:    decimal    # сумма партенра
-    referial_pay:    decimal    # сумма рефовода
-    partner_payout:    integer    # id выплаты, по которой ушли партнерские деньги
-    referial_payout:  integer    # id выплаты, по которой ушли рефериальные деньги
-    created_at:      datetime  # время внесения записи
-  relations:
-    PayOut:
-      local:    partner_payout
-      foreign:    id
-    PayOut:
-      local:    referial_payout
-      foreign:    id
-    Stream:
-      local:    stream_id
-      foreign:    id
-    ABUser:
-      local:    abuser_id
-      foreign:    id
+    id:
+      type:     integer(8)
+      fixed:    false
+      unsigned: false
+      primary:  true
+      autoincrement: true
+    dayOfWeek:
+      type:     integer(1)
+      notnull:  true
+    startWorkTime:
+      type:     time
+      notnull:  true
+    endWorkTime:
+      type:     time
+      notnull:  true
+    minDeliverySumBeforeWork:
+      type:     decimal
+      notnull:  true
+    minDeliverySumInWork:
+      type:     decimal
+      notnull:  true
+    minDeliverySumAfterWork:
+      type:     decimal
+      notnull:  true
+    deliveryPriceBeforeWork:
+      type:     decimal
+      notnull:  true
+    deliveryPriceInWork:
+      type:     decimal
+      notnull:  true
+    deliveryPriceAfterWork:
+      type:     decimal
+      notnull:  true
 
-PayOut:
+# Типы кухонь например "Таджикская" и "Узбекская"
+CookType:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [name]
   columns:
-    id:          integer    #
-    status:        boolean    # Статус выплаты true - выплачено
-    action:              # тип выплаты
-      type: enum          
-      values: ['планова','внеплановая','компенсация']
-    unplan_percent:    integer    # внеплановый процент
-    unplan_summ:    integer    # плановый процент
-    created_at:      datetime  # время создания выплаты
-    pay_at:        datetime  # время перечисления выплаты
-    description:    string    # комментаарий к выплате
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type:     string
+      notnull:  true
 
-PayOutContent:
+# Категории меню например "Супы" и "Закуски"
+MenuCategory: 
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [name, descripton]
   columns:
-    id:          integer
-    payout_id:      integer    # id выплаты
-    user_id:      integer    # id партнера
-    wmr:        string    # кошелек, на который выплачено
-    amount:        decimal    # сумма
-    description:    string    # описание
-  relations:
-    PayOut:
-      local:    payout_id
-      foreign:    id
-    Users:
-      local:    user_id
-      foreign:    id
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type:     string(255)
+      notnull:  true
+    descripton:
+      type:     string(255)
+      notnull:  true
 
-Stream:
+# Наборы меню
+Menu:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
   columns:
-    id:         integer
-    user_id:      integer      #
-    name:        string      # название
-    traff_back:      string      # трафбек
-    scheme:        integer      # схема оплаты
-    abcode:        string(2)    # 2-х буквенный код потока
-    status:        integer(1)    # статус потока 0- неактиве, 1-активен, 2-удален
-    created_at:      datetime    # время создания
-    updated_at:      datetime    # время последнего обновления
-    removed_at:      datetime    # время удаления потока
-  relations:
-    Users:
-      local:    user_id
-      foreign:    id
-    Schemes:
-      local:    scheme
-      foreign:    id
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    startAt:
+      type:     datetime
+      notnull:  true
+    endAt:
+      type:     datetime
+      notnull:  true
+    dayOfWeek:
+      type:     integer
+      default:  0
+      notnull:  true
+    userType:
+      type:     integer
+      default:  0
+      notnull:  true
+    daysToOrder:
+      type:     integer
+      default:  0
+      notnull:  true
+    partnerId:  
+      type:     integer
+      default:  0
+      notnull:  true
 
-Schemes:
+# Содержание набора меню
+MenuItem:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [name, descripton]
   columns:
-    id:        integer      # 
-    name:        string      # название
-    foreign_id:    integer      # id в удаленной системе
-    is_default:    boolean      # является выбором системы
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    menuId:
+      type: integer
+      default: 0
+    name:
+      type:     string(255)
+      notnull:  true
+    descripton:
+      type:     string(255)
+      notnull:  true
+    accessTimeStart:
+      type:     time
+      notnull:  true
+    accessTimeEnd:
+      type:     time
+      notnull:  true
+    price: 
+      type:     decimal
+      notnull:  true
+    MenuCategoryId:
+      type:     integer
+      notnull:  true
 
-Users:
+# Картинки для содержания меню
+MenuItemImage:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
   columns:
-    id:          integer
-    login:        string       
-    email:        string      # 
-    wmr:        string      # кошелек
-    password:      string      # пароль
-    salt:        string      # соль
-    algoritm:      string      # md5 или sha1  
-    last_login:      datetime    # последний вход в систему
-    register:      datetime    # Дата регистрации
-    referer:      integer       # ID пригласившего пользователя
-    percent:      integer      # Процент отчислений
-    referial_percent:  integer      # Процент рефериальных отчислений
-    phone:        string      #
-    balance:      decimal      # 
-  relations:
-    User: #Пользователь, пригласивший
-      local:    referer
-      foreign:    id
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    path:
+      type:     string(255)
+      notnull:  true
+    descripton:
+      type:     string(255)
+      notnull:  true
+    menuItemId:
+      type:     integer
+      default:  0
+      notnull:  true
 
-Invites:
+# Компоненты для содержания меню 
+Component:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
   columns:
-    id:          integer
-    invite_txt:      string      # GUID для приглашения
-    owner_id:      integer      # кто владелец инвайта
-    referer_id:      integer      # кто зарегился по инвайту
-  status:        boolean      # статус инвайта false -  не создан
-  created_at:      datetime    # время создания инвайта
-  used_at:      datetime    # время использования
-  relations:
-    Users:
-      local:     referer_id
-      foreign:     id
-    Users:
-      local:    owner_id
-      foreign_id:  id
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Дополнительные компоненты, которые клиент может дозаказать. Сюда пойдут прилохи всякие
+AdComponet:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Параметры блюда например вес и содержания цианистого калия
+Param:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Корзины пользователя
+Basket:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Блюда в корзине
+BasketItem:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Дополнительные компоненты к блюдам в корзине
+AdComponetsBasket:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+# Заказ пользователя
+XOrder:
+  options:
+    type: MyISAM
+    collate: utf8_unicode_ci
+    charset: utf8
+  actAs: 
+    Timestampable: ~
+    I18n:
+      fields: [descripton]
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+
+#Категории бонусов
+BonusCategory:
+
+# Бонусы
+BonusItem:
+
+# Заказ бонусов
+BonusOrder:

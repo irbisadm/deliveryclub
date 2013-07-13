@@ -6,11 +6,26 @@ homepage:
   url:   /
   param: { module: catalog, action: index }
 
+homepage_cult:
+  url:   /:sf_culture
+  param: { module: catalog, action: index }
+  requirements: { sf_culture: (?:cs|en|ru) }
+
 # generic rules
 # please, remove them by adding more specific rules
+default_index_cult:
+  url:   /:sf_culture/:module
+  param: { action: index }
+  requirements: { sf_culture: (?:cs|en|ru) }
+
 default_index:
   url:   /:module
   param: { action: index }
 
+default_cult:
+  url:   /:sf_culture/:module/:action/*
+  requirements: { sf_culture: (?:cs|en|ru) }
+  
 default:
   url:   /:module/:action/*
+
