@@ -702,7 +702,7 @@ footer .copyrights {
   -webkit-box-shadow: 0 0 30px rgba(114, 98, 82, 0.6);
   -moz-box-shadow: 0 0 30px rgba(114, 98, 82, 0.6);
   box-shadow: 0 0 30px rgba(114, 98, 82, 0.6);
-  background: url('../../images/frontend/bg-menu-olive.png') no-repeat scroll 0 50% transparent;
+  background: url('../../images/frontend/bg-menu-olive.png') repeat-x scroll 0 50% transparent;
   margin-top: 20px;
   height: 52px;
   border-radius: 5px;
