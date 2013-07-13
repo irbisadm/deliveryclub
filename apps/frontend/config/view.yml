@@ -6,15 +6,16 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
+    title:        Delivery Club CZ
+    viewport:     width=device-width, initial-scale=1.0, maximum-scale=1.0
     #description:  symfony project
     #keywords:     symfony, project
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [/css/frontend/bootstrap.min.css,/css/frontend/style.css,/css/frontend/lightbox.css]
 
-  javascripts:    []
+  javascripts:    [http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js,http://maps.googleapis.com/maps/api/js?sensor=false,/js/frontend/bootstrap.min.js,/js/frontend/lightbox.js,/js/frontend/script.js]
 
   has_layout:     true
   layout:         layout
