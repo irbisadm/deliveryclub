@@ -1,0 +1,130 @@
+ABUser:                # внешняя таблица
+  columns:
+    id:              integer      
+    indent:          string(8)    
+    sign_stream:     integer   # поток, с которого скачали
+    sign_site:      integer    # сайт, с которого скачали
+    banned:        boolean
+    last_active:    datetime
+    build_uid:      string
+    phone_number:    string
+
+PayIncome:            
+  columns:
+    id:          integer
+    abuser_id:      integer    # ссылка на abuser
+    stream_id:      integer    # ссылка на поток
+    amount:        decimal    # полная сумма
+    system_pay:      decimal    # сумма системы
+    partner_pay:    decimal    # сумма партенра
+    referial_pay:    decimal    # сумма рефовода
+    partner_payout:    integer    # id выплаты, по которой ушли партнерские деньги
+    referial_payout:  integer    # id выплаты, по которой ушли рефериальные деньги
+    created_at:      datetime  # время внесения записи
+  relations:
+    PayOut:
+      local:    partner_payout
+      foreign:    id
+    PayOut:
+      local:    referial_payout
+      foreign:    id
+    Stream:
+      local:    stream_id
+      foreign:    id
+    ABUser:
+      local:    abuser_id
+      foreign:    id
+
+PayOut:
+  columns:
+    id:          integer    #
+    status:        boolean    # Статус выплаты true - выплачено
+    action:              # тип выплаты
+      type: enum          
+      values: ['планова','внеплановая','компенсация']
+    unplan_percent:    integer    # внеплановый процент
+    unplan_summ:    integer    # плановый процент
+    created_at:      datetime  # время создания выплаты
+    pay_at:        datetime  # время перечисления выплаты
+    description:    string    # комментаарий к выплате
+
+PayOutContent:
+  columns:
+    id:          integer
+    payout_id:      integer    # id выплаты
+    user_id:      integer    # id партнера
+    wmr:        string    # кошелек, на который выплачено
+    amount:        decimal    # сумма
+    description:    string    # описание
+  relations:
+    PayOut:
+      local:    payout_id
+      foreign:    id
+    Users:
+      local:    user_id
+      foreign:    id
+
+Stream:
+  columns:
+    id:         integer
+    user_id:      integer      #
+    name:        string      # название
+    traff_back:      string      # трафбек
+    scheme:        integer      # схема оплаты
+    abcode:        string(2)    # 2-х буквенный код потока
+    status:        integer(1)    # статус потока 0- неактиве, 1-активен, 2-удален
+    created_at:      datetime    # время создания
+    updated_at:      datetime    # время последнего обновления
+    removed_at:      datetime    # время удаления потока
+  relations:
+    Users:
+      local:    user_id
+      foreign:    id
+    Schemes:
+      local:    scheme
+      foreign:    id
+
+Schemes:
+  columns:
+    id:        integer      # 
+    name:        string      # название
+    foreign_id:    integer      # id в удаленной системе
+    is_default:    boolean      # является выбором системы
+
+Users:
+  columns:
+    id:          integer
+    login:        string       
+    email:        string      # 
+    wmr:        string      # кошелек
+    password:      string      # пароль
+    salt:        string      # соль
+    algoritm:      string      # md5 или sha1  
+    last_login:      datetime    # последний вход в систему
+    register:      datetime    # Дата регистрации
+    referer:      integer       # ID пригласившего пользователя
+    percent:      integer      # Процент отчислений
+    referial_percent:  integer      # Процент рефериальных отчислений
+    phone:        string      #
+    balance:      decimal      # 
+  relations:
+    User: #Пользователь, пригласивший
+      local:    referer
+      foreign:    id
+
+Invites:
+  columns:
+    id:          integer
+    invite_txt:      string      # GUID для приглашения
+    owner_id:      integer      # кто владелец инвайта
+    referer_id:      integer      # кто зарегился по инвайту
+  status:        boolean      # статус инвайта false -  не создан
+  created_at:      datetime    # время создания инвайта
+  used_at:      datetime    # время использования
+  relations:
+    Users:
+      local:     referer_id
+      foreign:     id
+    Users:
+      local:    owner_id
+      foreign_id:  id
