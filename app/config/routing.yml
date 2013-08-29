@@ -1,0 +1,4 @@
+dc_showcase:
+    resource: "@DCShowcaseBundle/Resources/config/routing.yml"
+    prefix:   /
+
