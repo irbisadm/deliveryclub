@@ -217,9 +217,12 @@ MenuItem:
     price: 
       type:     decimal
       notnull:  true
-    MenuCategoryId:
+    menuCategoryId:
       type:     integer
       notnull:  true
+    showInTop:
+      type:     boolean
+      default:  false
 
 # Картинки для содержания меню
 MenuItemImage:
