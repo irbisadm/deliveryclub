@@ -19,4 +19,53 @@ class Menu
      */
  	protected $place;
 
+ 	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $active;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $removed;
+
+	protected $repeatType
+
+	protected $repeatAfter
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $monday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $tuesday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $wednesday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $thursday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $friday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $saturday;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $sunday;
+
 } 
