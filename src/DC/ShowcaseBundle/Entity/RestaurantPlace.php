@@ -11,8 +11,12 @@ class RestaurantPlace
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
-
+     protected $id;
+     
+     /**
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="places")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     */
  	protected $city;
 
  	protected $street;
