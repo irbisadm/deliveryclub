@@ -68,4 +68,13 @@ class Menu
      */
 	protected $sunday;
 
+	/**
+     * @ManyToMany(targetEntity="Meal")
+     * @JoinTable(name="menu_meal",
+     *      joinColumns={@JoinColumn(name="menu_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="meal_id", referencedColumnName="id")}
+     *      )
+     */
+    private $meals;
+
 } 
