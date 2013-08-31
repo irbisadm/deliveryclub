@@ -24,6 +24,8 @@ class Menu
      */
 	protected $active;
 
+	protected $payDown;
+
 	/**
      * @ORM\Column(type="boolean")
      */
