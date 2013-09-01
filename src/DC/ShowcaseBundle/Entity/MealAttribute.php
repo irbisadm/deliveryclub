@@ -25,6 +25,10 @@ class MealAttribute
      */
     protected $x_value;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Meal", inversedBy="attributes")
+     * @ORM\JoinColumn(name="meal_id", referencedColumnName="id")
+     */
     protected $meal;
 
  	/**

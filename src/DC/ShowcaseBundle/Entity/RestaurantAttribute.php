@@ -17,6 +17,15 @@ class RestaurantAttribute
      */
     protected $id;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $removed;
 
     /**
      * Get id

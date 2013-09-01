@@ -27,6 +27,8 @@ class ParkDomain
      * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
     protected $restaurant;
+
+    
     /**
      * @ORM\Column(type="string")
      */

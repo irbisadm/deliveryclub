@@ -48,6 +48,11 @@ class Meal
      */
     protected $months;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MealAttribute", mappedBy="meal")
+     */
+    protected $park_domains;
+
  	/**
      * @ORM\Column(type="boolean")
      */
