@@ -63,16 +63,6 @@ class RestaurantWorkTime
      */
  	protected $deliveryPrice;
 
- 	/**
-     * @ORM\Column(type="boolean")
-     */
-	protected $active;
-
-	/**
-     * @ORM\Column(type="boolean")
-     */
-	protected $removed;
-
 	/**
      * @ORM\Column(type="boolean")
      */
@@ -108,6 +98,16 @@ class RestaurantWorkTime
      */
 	protected $sunday;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $removed;
+    
     /**
      * Get id
      *

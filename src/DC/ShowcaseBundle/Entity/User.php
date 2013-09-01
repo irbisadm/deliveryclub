@@ -45,6 +45,16 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $removed;
+
     public function __construct()
     {
         $this->isActive = true;
