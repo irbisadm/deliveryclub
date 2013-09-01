@@ -2,8 +2,12 @@
 namespace DC\ShowcaseBundle\Entity; 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * DC\ShowcaseBundle\Entity\Restaurant
+ *
+ * @ORM\Entity
+ */
 class Restaurant
 {
 	/**
@@ -41,4 +45,157 @@ class Restaurant
      * @ORM\OneToMany(targetEntity="ParkDomain", mappedBy="restaurant")
      */
 	protected $park_domains;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->places = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->park_domains = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set descriprion
+     *
+     * @param string $descriprion
+     * @return Restaurant
+     */
+    public function setDescriprion($descriprion)
+    {
+        $this->descriprion = $descriprion;
+    
+        return $this;
+    }
+
+    /**
+     * Get descriprion
+     *
+     * @return string 
+     */
+    public function getDescriprion()
+    {
+        return $this->descriprion;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Restaurant
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set removed
+     *
+     * @param boolean $removed
+     * @return Restaurant
+     */
+    public function setRemoved($removed)
+    {
+        $this->removed = $removed;
+    
+        return $this;
+    }
+
+    /**
+     * Get removed
+     *
+     * @return boolean 
+     */
+    public function getRemoved()
+    {
+        return $this->removed;
+    }
+
+    /**
+     * Add places
+     *
+     * @param \DC\ShowcaseBundle\Entity\RestaurantPlace $places
+     * @return Restaurant
+     */
+    public function addPlace(\DC\ShowcaseBundle\Entity\RestaurantPlace $places)
+    {
+        $this->places[] = $places;
+    
+        return $this;
+    }
+
+    /**
+     * Remove places
+     *
+     * @param \DC\ShowcaseBundle\Entity\RestaurantPlace $places
+     */
+    public function removePlace(\DC\ShowcaseBundle\Entity\RestaurantPlace $places)
+    {
+        $this->places->removeElement($places);
+    }
+
+    /**
+     * Get places
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlaces()
+    {
+        return $this->places;
+    }
+
+    /**
+     * Add park_domains
+     *
+     * @param \DC\ShowcaseBundle\Entity\ParkDomain $parkDomains
+     * @return Restaurant
+     */
+    public function addParkDomain(\DC\ShowcaseBundle\Entity\ParkDomain $parkDomains)
+    {
+        $this->park_domains[] = $parkDomains;
+    
+        return $this;
+    }
+
+    /**
+     * Remove park_domains
+     *
+     * @param \DC\ShowcaseBundle\Entity\ParkDomain $parkDomains
+     */
+    public function removeParkDomain(\DC\ShowcaseBundle\Entity\ParkDomain $parkDomains)
+    {
+        $this->park_domains->removeElement($parkDomains);
+    }
+
+    /**
+     * Get park_domains
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParkDomains()
+    {
+        return $this->park_domains;
+    }
 }

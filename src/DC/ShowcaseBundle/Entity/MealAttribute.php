@@ -2,8 +2,12 @@
 namespace DC\ShowcaseBundle\Entity; 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * DC\ShowcaseBundle\Entity\MealAttribute
+ *
+ * @ORM\Entity
+ */
 class MealAttribute
 {
 	/**
@@ -17,8 +21,8 @@ class MealAttribute
 
     protected $x_value;
 
-    protected $meal
-    
+    protected $meal;
+
  	/**
      * @ORM\Column(type="boolean")
      */
@@ -30,5 +34,60 @@ class MealAttribute
 	protected $removed;
 
 
-} 
- 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return MealAttribute
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set removed
+     *
+     * @param boolean $removed
+     * @return MealAttribute
+     */
+    public function setRemoved($removed)
+    {
+        $this->removed = $removed;
+    
+        return $this;
+    }
+
+    /**
+     * Get removed
+     *
+     * @return boolean 
+     */
+    public function getRemoved()
+    {
+        return $this->removed;
+    }
+}

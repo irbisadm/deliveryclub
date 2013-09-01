@@ -2,8 +2,12 @@
 namespace DC\ShowcaseBundle\Entity; 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * DC\ShowcaseBundle\Entity\ParkDomain
+ *
+ * @ORM\Entity
+ */
 class ParkDomain
 {
 	/**

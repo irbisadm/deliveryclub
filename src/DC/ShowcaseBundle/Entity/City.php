@@ -2,8 +2,12 @@
 namespace DC\ShowcaseBundle\Entity; 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * DC\ShowcaseBundle\Entity\City
+ *
+ * @ORM\Entity
+ */
 class City
 {
 	/**
@@ -31,4 +35,83 @@ class City
      */
      protected $removed;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return City
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set removed
+     *
+     * @param boolean $removed
+     * @return City
+     */
+    public function setRemoved($removed)
+    {
+        $this->removed = $removed;
+    
+        return $this;
+    }
+
+    /**
+     * Get removed
+     *
+     * @return boolean 
+     */
+    public function getRemoved()
+    {
+        return $this->removed;
+    }
+
+    /**
+     * Set region
+     *
+     * @param \DC\ShowcaseBundle\Entity\Region $region
+     * @return City
+     */
+    public function setRegion(\DC\ShowcaseBundle\Entity\Region $region = null)
+    {
+        $this->region = $region;
+    
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return \DC\ShowcaseBundle\Entity\Region 
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
 }
