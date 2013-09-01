@@ -1,3 +1,11 @@
+dc_admin:
+    resource: "@DCAdminBundle/Resources/config/routing.php"
+    prefix:   /
+
+dc_managerer:
+    resource: "@DCManagererBundle/Resources/config/routing.php"
+    prefix:   /
+
 dc_showcase:
     resource: "@DCShowcaseBundle/Resources/config/routing.yml"
     prefix:   /
