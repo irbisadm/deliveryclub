@@ -6,28 +6,39 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ParkDomain
+ * 
+ * @ORM\Entity
  */
 class ParkDomain
 {
     /**
-     * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+     protected $id;
 
-    /**
-     * @var boolean
-     */
-    private $checked;
+    protected $name;
 
-    /**
-     * @var \DateTime
+     /**
+     * @ORM\ManyToOne(targetEntity="Restaurant", inversedBy="park_domains")
+     * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
-    private $lastCheck;
+    protected $restaurant;
 
-    /**
-     * @var \DC\ShowcaseBundle\Entity\Restaurant
+     protected $domain;
+
+     protected $stream;
+
+     /**
+     * @ORM\Column(type="boolean")
      */
-    private $restaurant;
+     protected $checked;
+
+     /**
+     * @ORM\Column(type="datetime")
+     */
+     protected $lastCheck; 
 
 
     /**
