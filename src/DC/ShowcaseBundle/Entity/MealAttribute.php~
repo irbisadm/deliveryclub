@@ -4,39 +4,39 @@ namespace DC\ShowcaseBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DC\ShowcaseBundle\Entity\City
+ * DC\ShowcaseBundle\Entity\MealAttribute
  *
  * @ORM\Entity
  */
-class City
+class MealAttribute
 {
 	/**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-     protected $id;
-
-     /**
+    protected $id;
+    /**
      * @ORM\Column(type="string")
      */
- 	protected $name;
-
-     /**
-     * @ORM\ManyToOne(targetEntity="Region", inversedBy="citys")
-     * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
+    protected $x_key;
+    /**
+     * @ORM\Column(type="string")
      */
- 	protected $region;
+    protected $x_value;
 
-     /**
+    protected $meal;
+
+ 	/**
      * @ORM\Column(type="boolean")
      */
-     protected $active;
+	protected $active;
 
-     /**
+	/**
      * @ORM\Column(type="boolean")
      */
-     protected $removed;
+	protected $removed;
+
 
 
     /**
@@ -53,7 +53,7 @@ class City
      * Set active
      *
      * @param boolean $active
-     * @return City
+     * @return MealAttribute
      */
     public function setActive($active)
     {
@@ -76,7 +76,7 @@ class City
      * Set removed
      *
      * @param boolean $removed
-     * @return City
+     * @return MealAttribute
      */
     public function setRemoved($removed)
     {
@@ -93,51 +93,5 @@ class City
     public function getRemoved()
     {
         return $this->removed;
-    }
-
-    /**
-     * Set region
-     *
-     * @param \DC\ShowcaseBundle\Entity\Region $region
-     * @return City
-     */
-    public function setRegion(\DC\ShowcaseBundle\Entity\Region $region = null)
-    {
-        $this->region = $region;
-    
-        return $this;
-    }
-
-    /**
-     * Get region
-     *
-     * @return \DC\ShowcaseBundle\Entity\Region 
-     */
-    public function getRegion()
-    {
-        return $this->region;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return City
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 }

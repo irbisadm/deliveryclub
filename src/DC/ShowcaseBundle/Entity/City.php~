@@ -4,11 +4,11 @@ namespace DC\ShowcaseBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DC\ShowcaseBundle\Entity\Region
+ * DC\ShowcaseBundle\Entity\City
  *
  * @ORM\Entity
  */
-class Region
+class City
 {
 	/**
      * @ORM\Id
@@ -16,15 +16,17 @@ class Region
      * @ORM\GeneratedValue(strategy="AUTO")
      */
      protected $id;
+
      /**
      * @ORM\Column(type="string")
      */
  	protected $name;
 
      /**
-     * @ORM\OneToMany(targetEntity="City", mappedBy="region")
+     * @ORM\ManyToOne(targetEntity="Region", inversedBy="citys")
+     * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
      */
- 	protected $citys;
+ 	protected $region;
 
      /**
      * @ORM\Column(type="boolean")
@@ -36,14 +38,7 @@ class Region
      */
      protected $removed;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->citys = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Get id
      *
@@ -58,7 +53,7 @@ class Region
      * Set active
      *
      * @param boolean $active
-     * @return Region
+     * @return City
      */
     public function setActive($active)
     {
@@ -81,7 +76,7 @@ class Region
      * Set removed
      *
      * @param boolean $removed
-     * @return Region
+     * @return City
      */
     public function setRemoved($removed)
     {
@@ -101,58 +96,25 @@ class Region
     }
 
     /**
-     * Add citys
+     * Set region
      *
-     * @param \DC\ShowcaseBundle\Entity\City $citys
-     * @return Region
+     * @param \DC\ShowcaseBundle\Entity\Region $region
+     * @return City
      */
-    public function addCity(\DC\ShowcaseBundle\Entity\City $citys)
+    public function setRegion(\DC\ShowcaseBundle\Entity\Region $region = null)
     {
-        $this->citys[] = $citys;
+        $this->region = $region;
     
         return $this;
     }
 
     /**
-     * Remove citys
+     * Get region
      *
-     * @param \DC\ShowcaseBundle\Entity\City $citys
+     * @return \DC\ShowcaseBundle\Entity\Region 
      */
-    public function removeCity(\DC\ShowcaseBundle\Entity\City $citys)
+    public function getRegion()
     {
-        $this->citys->removeElement($citys);
-    }
-
-    /**
-     * Get citys
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCitys()
-    {
-        return $this->citys;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Region
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
+        return $this->region;
     }
 }

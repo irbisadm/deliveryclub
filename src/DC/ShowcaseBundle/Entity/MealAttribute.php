@@ -16,9 +16,13 @@ class MealAttribute
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $x_key;
-
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $x_value;
 
     protected $meal;
@@ -89,5 +93,51 @@ class MealAttribute
     public function getRemoved()
     {
         return $this->removed;
+    }
+
+    /**
+     * Set x_key
+     *
+     * @param string $xKey
+     * @return MealAttribute
+     */
+    public function setXKey($xKey)
+    {
+        $this->x_key = $xKey;
+    
+        return $this;
+    }
+
+    /**
+     * Get x_key
+     *
+     * @return string 
+     */
+    public function getXKey()
+    {
+        return $this->x_key;
+    }
+
+    /**
+     * Set x_value
+     *
+     * @param string $xValue
+     * @return MealAttribute
+     */
+    public function setXValue($xValue)
+    {
+        $this->x_value = $xValue;
+    
+        return $this;
+    }
+
+    /**
+     * Get x_value
+     *
+     * @return string 
+     */
+    public function getXValue()
+    {
+        return $this->x_value;
     }
 }
