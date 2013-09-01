@@ -24,6 +24,13 @@ class Meal
      */
     protected $needSideDishes
 
+     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $seasonic
+
+    protected $months    
+
  	/**
      * @ORM\Column(type="boolean")
      */
