@@ -1,12 +1,15 @@
 dc_admin:
     resource: "@DCAdminBundle/Resources/config/routing.php"
+    host:     "admin.deliveryclub.cz"
     prefix:   /
 
 dc_managerer:
     resource: "@DCManagererBundle/Resources/config/routing.php"
+    host:     "lcab.deliveryclub.cz"
     prefix:   /
 
 dc_showcase:
     resource: "@DCShowcaseBundle/Resources/config/routing.yml"
+    host:     "deliveryclub.cz"
     prefix:   /
 
