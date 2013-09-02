@@ -41,6 +41,11 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=60, unique=true)
+     */
+    private $phone;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
@@ -54,6 +59,25 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="boolean")
      */
     protected $removed;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $bonuses;
+
+    /**
+     * 
+     */
+    protected $mealOrders;
+
+
+    /**
+     * 
+     */
+    protected $groups;
+
+
+
 
     public function __construct()
     {

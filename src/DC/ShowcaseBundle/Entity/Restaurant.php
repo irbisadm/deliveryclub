@@ -30,6 +30,17 @@ class Restaurant
      */
 	protected $descriprion;
 
+    /**
+  * @ORM\Column(name="notif_email",type="string")
+  */
+  protected $notifEmail;
+
+  /**
+  * @ORM\Column(name="is_orders",type="boolean")
+  */
+  protected $isSendingAllOrders;
+
+
 	/**
      * @ORM\OneToMany(targetEntity="RestaurantPlace", mappedBy="restaurant")
      */

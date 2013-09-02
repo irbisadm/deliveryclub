@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * DC\ShowcaseBundle\Entity\RestaurantPlace
  *
  * @ORM\Entity
+ * @ORM\Table(name="restaurant_place")
  */
 class RestaurantPlace
 {
@@ -36,15 +37,59 @@ class RestaurantPlace
  	protected $lat;
 
  	/**
-  * @ORM\ManyToOne(targetEntity="Restaurant", inversedBy="places")
-  * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
-  */
- 	protected $restaurant;
-
- 	/**
   * @ORM\Column(type="text")
   */
   protected $description;
+
+  /*
+  TODO: Модуль отвечающий за подтверждение заказа. Работает так
+  Если isValidated == true
+    тогда Рестаран открыт
+  Иначе 
+    Если isConfirming == true
+      тогда рестаран находится на проверке
+    Иначе проверка провалена, и должен обязательно быть заполнен confirmingDescription
+  */
+
+  /**
+  * @ORM\Column(name="is_validated", type="boolean")
+  */
+  protected $isValidated;
+
+  /**
+  * @ORM\Column(name="is_confirming", type="boolean")
+  */
+  protected $isConfirming;
+
+  /**
+  * @ORM\Column(name="confirming_desc", type="text")
+  */
+  protected $confirmingDescription;
+  
+  //Конец модуля подтверждения
+
+
+  /**
+  * @ORM\Column(name="notif_email",type="string")
+  */
+  protected $notifEmail;
+
+  /**
+  * @ORM\Column(name="notif_phone_code",type="string")
+  */
+  protected $notifPhoneCode;
+
+  /**
+  * @ORM\Column(name="notif_phone",type="string")
+  */
+  protected $notifPhone;
+
+    /**
+  * @ORM\ManyToOne(targetEntity="Restaurant", inversedBy="places")
+  * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
+  */
+    protected $restaurant;
+
 
  	/**
   * @ORM\OneToMany(targetEntity="RestaurantWorkTime", mappedBy="place")
