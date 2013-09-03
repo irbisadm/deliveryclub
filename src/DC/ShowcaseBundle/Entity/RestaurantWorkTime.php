@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RestaurantWorkTime
 {
-	/**
+    /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -21,82 +21,82 @@ class RestaurantWorkTime
      * @ORM\ManyToOne(targetEntity="RestaurantPlace", inversedBy="workTime")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      */
- 	protected $place;
+    protected $place;
 
- 	/**
+    /**
      * @ORM\Column(type="time")
      */
- 	protected $startSpan;
+    protected $startSpan;
 
- 	/**
+    /**
      * @ORM\Column(type="time")
      */
- 	protected $endSpan;
+    protected $endSpan;
 
- 	/**
+    /**
      * @ORM\Column(type="boolean")
      */
- 	protected $work;
+    protected $work;
 
      /**
      * @ORM\Column(type="text")
      */
      protected $description;
 
- 	/**
+    /**
      * @ORM\Column(type="boolean")
      */
- 	protected $delivery;
+    protected $delivery;
 
- 	/**
+    /**
      * @ORM\Column(type="float")
      */
- 	protected $minDeliverySumm;
+    protected $minDeliverySumm;
 
- 	/**
+    /**
      * @ORM\Column(type="float")
      */
- 	protected $maxDeliverySumm;
+    protected $maxDeliverySumm;
 
- 	/**
+    /**
      * @ORM\Column(type="float")
      */
- 	protected $deliveryPrice;
+    protected $deliveryPrice;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $monday;
+    protected $monday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $tuesday;
+    protected $tuesday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $wednesday;
+    protected $wednesday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $thursday;
+    protected $thursday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $friday;
+    protected $friday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $saturday;
+    protected $saturday;
 
-	/**
+    /**
      * @ORM\Column(type="boolean")
      */
-	protected $sunday;
+    protected $sunday;
 
     /**
      * @ORM\Column(type="boolean")
