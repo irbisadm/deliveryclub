@@ -1,16 +1,47 @@
 dc_showcase_homepage:
-    pattern:  /
-    defaults: { _controller: DCShowcaseBundle:Default:index, _locale: cs, name: 'test' }
+  pattern:  /
+  defaults: { _controller: DCShowcaseBundle:Default:index, _locale: cs, name: 'test' }
 
 
 dc_showcase_homepage_lang:
-    pattern:  /{_locale}/{name}
-    defaults: { _controller: DCShowcaseBundle:Default:index, _locale: en }
-    requirements:
-        _locale: cs|ru|en
+  pattern:  /{_locale}/{name}
+  defaults: { _controller: DCShowcaseBundle:Default:index, _locale: en }
+  requirements:
+    _locale: cs|ru|en
+
+dc_set_locale:
+  pattern:  /set_locale/{_locale}
+  defaults: { _controller: DCShowcaseBundle:Default:setLocale}
+  requirements:
+    _locale: cs|ru|en
 
 login:
-    pattern:   /login
-    defaults:  { _controller: DCShowcaseBundle:Auth:login }
+  pattern:   /login
+  defaults:  { _controller: DCShowcaseBundle:Auth:login }
 login_check:
-    pattern:   /login_check
+  pattern:   /login_check
+
+basket:
+  pattern:   /basket
+  defaults:  {_controller: DCShowcaseBundle:Basket:index}
+
+restaurant:
+  pattern:   /restaurant/{name}
+  defaults:  {_controller: DCShowcaseBundle:Restaurant:index}
+
+restaurant_menu:
+  pattern:   /restaurant/{name}/menu/{menu}
+  defaults:  {_controller: DCShowcaseBundle:Restaurant:menu}
+
+restaurant_category:
+  pattern:   /restaurant/{name}/category/{category}
+  defaults:  {_controller: DCShowcaseBundle:Restaurant:category}
+
+global_category_root:
+  pattern:   /category
+  defaults:  {_controller: DCShowcaseBundle:Restaurant:list, category: '-1'}
+
+global_category:
+  pattern:   /category/{category}
+  defaults:  {_controller: DCShowcaseBundle:Restaurant:list}
+
