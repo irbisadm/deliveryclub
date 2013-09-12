@@ -13,3 +13,7 @@ dc_showcase:
     host:     "deliveryclub.cz"
     prefix:   /
 
+dc_showcase:
+    resource: "@DCShowcaseBundle/Resources/config/routing.yml"
+    host:     "www.deliveryclub.cz"
+    prefix:   /
