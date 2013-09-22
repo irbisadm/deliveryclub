@@ -44,7 +44,11 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=60, unique=true)
      */
     private $phone;
-
+    /**
+     * @ORM\Column(type="string", length=60, unique=false)
+     */
+    private $role;
+    
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
@@ -114,7 +118,7 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->role;
     }
 
     /**
