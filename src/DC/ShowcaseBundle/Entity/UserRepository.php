@@ -37,6 +37,28 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         return $user;
     }
 
+    public function searchUsers($query)
+    {
+        $q = $this
+            ->createQueryBuilder('u')
+            ->where('u.username LIKE :username OR u.email LIKE :email OR u.phone LIKE :phone')
+            ->setParameter('username', $query)
+            ->setParameter('email', $query)
+            ->setParameter('phone', $query)
+            ->getQuery();
+        try {
+            $users = $q->getResult();
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active user DCShowcaseBundle:User object identified by "%s".',
+                $username
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+        return $users;
+    }
+
+
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);

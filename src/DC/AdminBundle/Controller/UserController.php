@@ -10,9 +10,12 @@ class UserController extends Controller
     public function listAction($search){
       $repository = $this->getDoctrine()
                     ->getRepository('DCShowcaseBundle:User');
-
+      if($search!="-1")
+        $users = $repository->searchUsers($search);
+      else
+        $users = $repository->findAll();
       $params = array(
-        "users" => array()
+        "users" => $users
         );
       return $this->render('DCAdminBundle:User:list.html.twig', $params);
     }

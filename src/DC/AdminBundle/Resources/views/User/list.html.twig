@@ -45,34 +45,26 @@
                   </tr>
                   </thead>
                   <tbody>
+                  {% for item in users %}
                   <tr>
-                      <td><img width="24" alt="Operator" src="{{ asset('/bundles/dcadmin/img/icons/colored/headset.png') }}"> </td>
-                      <td>Row 2</td>
-                      <td>Row 3</td>
-                      <td>Row 4</td>
-                      <td>Row 5</td>
+                    <td>
+                      {% if     item.getRole() == 'ROLE_OPERATOR' %}
+                      <img width="24" alt="Operator" src="{{ asset('/bundles/dcadmin/img/icons/colored/headset.png') }}"> </td>
+                      {% elseif item.getRole() == 'ROLE_ADMIN'%}
+                      <img width="24" alt="Administrator" src="{{ asset('/bundles/dcadmin/img/icons/colored/administrator.png') }}">
+                      {% elseif item.getRole() == 'ROLE_MANAGER' %}
+                      <img width="24" alt="Restaurant manager" src="{{ asset('/bundles/dcadmin/img/icons/colored/group.png') }}">
+                      {% elseif item.getRole() == 'ROLE_USER' %}
+                      <img width="24" alt="User" src="{{ asset('/bundles/dcadmin/img/icons/colored/user_woman.png') }}">
+                      {% else %}
+                      <img width="24" alt="Unknown type" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}">
+                      {% endif %}
+                    <td>{{ item.getUsername() }}</td>
+                    <td>{{ item.getEmail() }}</td>
+                    <td>{{ item.getPhone() }}</td>
+                    <td></td>
                   </tr>
-                  <tr>
-                      <td><img width="24" alt="Administrator" src="{{ asset('/bundles/dcadmin/img/icons/colored/administrator.png') }}"></td>
-                      <td>Row 2</td>
-                      <td>Row 3</td>
-                      <td>Row 4</td>
-                      <td>Row 5</td>
-                  </tr>
-                  <tr>
-                      <td><img width="24" alt="Restaurant manager" src="{{ asset('/bundles/dcadmin/img/icons/colored/group.png') }}"></td>
-                      <td>Row 2</td>
-                      <td>Row 3</td>
-                      <td>Row 4</td>
-                      <td>Row 5</td>
-                  </tr>
-                  <tr>
-                      <td><img width="24" alt="User" src="{{ asset('/bundles/dcadmin/img/icons/colored/user_woman.png') }}"></td>
-                      <td>Row 2</td>
-                      <td>Row 3</td>
-                      <td>Row 4</td>
-                      <td>Row 5</td>
-                  </tr>
+                  {% endfor %}
                   </tbody>
               </table>
           </div>
