@@ -78,10 +78,12 @@
                   <ul>
                     {% if page != 0 %}
                     <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/0">← First</a></li>
-                    <li><a href="#">{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page-1 }}</a></li>
+                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page-1 }}">Prev</a></li>
                     {% endif %}
-                    <li><a href="#">Next</a></li>
+                    {% if page != maxpage %}
+                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page+1 }}">Next</a></li>
                     <li><a href="#">Last →</a></li>
+                    {% endif %}
                   </ul>
                 </div>
               </div>
