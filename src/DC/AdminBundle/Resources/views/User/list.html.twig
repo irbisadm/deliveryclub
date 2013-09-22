@@ -10,7 +10,7 @@
 
         <div class="span10">
           <div class="input-append">
-            <input type="text" style="width:85%" placeholder="enter username, email or phone"><button type="button" class="btn">Search!</button>
+            <input type="text" style="width:85%" id="search_eq" placeholder="enter username, email or phone"><button type="button" id="search_bt" class="btn">Search!</button>
           </div>
         </div>
       </div>
@@ -71,4 +71,15 @@
       </div><!-- widget_wrapper end -->
   </div>
 </div>
+{% endblock %}
+
+{% block javascript_footer %}
+ {{ parent() }}
+<script type="text/javascript" charset="utf-8" async defer>
+$(function() {
+  $('#search_bt').click(function(event) {
+   document.location = '{{ path('dc_admin_manageusers') }}/'+$('#search_eq').val();
+  });
+});
+</script>
 {% endblock %}
