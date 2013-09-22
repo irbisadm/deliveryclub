@@ -7,7 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
 {
-    public function listAction(){
+    public function listAction($search){
+      $repository = $this->getDoctrine()
+                    ->getRepository('DCShowcaseBundle:User');
+
       $params = array(
         "users" => array()
         );

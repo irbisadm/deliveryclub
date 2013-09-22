@@ -11,7 +11,7 @@ $collection->add('dc_admin_homepage', new Route('/', array(
 
 $collection->add('dc_admin_manageusers', new Route('/users', array(
     '_controller' => 'DCAdminBundle:User:list',
-    'search'      => '0'
+    'search'      => '-1'
 )));
 $collection->add('dc_admin_manageusers_w_search', new Route('/users/{search}', array(
     '_controller' => 'DCAdminBundle:User:list',
