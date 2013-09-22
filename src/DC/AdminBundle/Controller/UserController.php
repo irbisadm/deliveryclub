@@ -12,7 +12,7 @@ class UserController extends Controller
                     ->getRepository('DCShowcaseBundle:User');
       $onpage = 10;
       $offset = $onpage*$page;
-      $users = $repository->searchUsers($search,$limit,$offset);
+      $users = $repository->searchUsers($search,$onpage,$offset);
       $count_users = $repository->countSearchUsers($search);
       
       $params = array(
