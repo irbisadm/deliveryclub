@@ -1,16 +1,26 @@
 {% extends 'DCAdminBundle:Default:index.html.twig' %}
 {% block content %}
 <div class="row-fluid">
+  <div class="span11 offset1">
+    <div class="search">
+        <form method="post" action="" class="search_form">
+            <div class="input-append input_box">
+                <input type="text" id="appendedInputButton" class="input-small"><button type="button" class="btn">Go!</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+<div class="row-fluid">
   <div class="span12">
       <div class="widget_wrapper">
           <div class="widget_header">
-              <h3 class="icos_table">Table with options</h3>
+              <h3 class="icos_table">Users of system</h3>
 
               <div class="widget_option">
                   <a data-toggle="dropdown" href="#" class="icos_settings"></a>
                   <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
                       <li><a href="#" ><i class="icon-plus-sign"></i> Add</a></li>
-                      <li><a href="#" ><i class="icon-trash"></i>Remove</a></li>
                       <li><a href="#" ><i class="icon-pencil"></i>Edit</a></li>
                       <li><a href="#" ><i class="icon-heart"></i>Do whatever you like</a></li>
                   </ul>
