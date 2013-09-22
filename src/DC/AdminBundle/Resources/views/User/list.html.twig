@@ -2,12 +2,18 @@
 {% block content %}
 <div class="row-fluid">
   <div class="span11 offset1">
-    <div class="search">
-        <form method="post" action="" class="search_form">
-            <div class="input-append input_box">
-                <input type="text" id="appendedInputButton" class="input-small"><button type="button" class="btn">Go!</button>
-            </div>
-        </form>
+    <div class="form_inputs clearfix">
+      <div class="row-fluid">
+        <div class="span2">
+          <label class="control-label">Append with button:</label>
+        </div>
+
+        <div class="span10">
+          <div class="input-append">
+            <input type="text" style="width:85%" placeholder="find me!"><button type="button" class="btn">Go!</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
