@@ -1,0 +1,137 @@
+<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.pie.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    /* Chart js start */
+
+    var bolt = {
+        showTooltip: function (x, y, contents) {
+            $('<div class="bolt_tips">' + contents + '</div>').css( {
+                position: 'absolute',
+                display: 'none',
+                top: y + 5,
+                left: x + 5
+            }).appendTo("body").fadeIn(200);
+        }
+
+    }
+
+    if (!!$(".plots").offset() ) {
+        var sin = [];
+        var cos = [];
+
+        for (var i = 0; i <= 20; i += 0.5){
+            sin.push([i, Math.sin(i)]);
+            cos.push([i, Math.cos(i)]);
+        }
+
+        // Display the Sin and Cos Functions
+        $.plot($(".plots"), [ { label: "Cos", data: cos }, { label: "Sin", data: sin } ],
+            {
+                colors: ["#00AADD", "#FF6347"],
+
+                series: {
+                    lines: {
+                        show: true,
+                        lineWidth: 2
+                    },
+                    points: {show: true},
+                    shadowSize: 2
+                },
+
+                grid: {
+                    hoverable: true,
+                    show: true,
+                    borderWidth: 0,
+                    labelMargin: 12
+                },
+
+                legend: {
+                    show: true,
+                    margin: [0,-24],
+                    noColumns: 0,
+                    labelBoxBorderColor: null
+                },
+
+                yaxis: { min: -1.2, max: 1.2},
+                xaxis: {}
+            });
+
+        // Tooltip Show
+        var previousPoint = null;
+        $(".plots").bind("plothover", function (event, pos, item) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+                    $(".charts_tooltip").fadeOut("fast").promise().done(function(){
+                        $(this).remove();
+                    });
+                    var x = item.datapoint[0].toFixed(2),
+                        y = item.datapoint[1].toFixed(2);
+                    bolt.showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
+                }
+            }
+            else {
+                $(".bolt_tips").fadeOut("fast").promise().done(function(){
+                    $(this).remove();
+                });
+                previousPoint = null;
+            }
+        });
+    }
+
+    /* Chart js end */
+});
+</script>
+<div class="footer_wrapper">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="footer">
+                    All right reserved &reg; by <a href="http://themio.net">Themio</a>
+                </div><!-- footer end -->
+            </div>
+        </div>
+    </div>
+</div><!-- footer_wrapper end -->
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery.elastic.source.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput-1.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.js"></script>
+<script type="text/javascript" src="js/chosen.jquery.js"></script>
+<script type="text/javascript" src="js/jquery.ibutton.js"></script>
+<script type="text/javascript" src="js/jquery.ui.spinner.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.validationEngine-en.js"></script>
+<script type="text/javascript" src="js/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.smartWizard-2.0.js"></script>
+<script type="text/javascript" src="js/jquery.filedrop.js"></script>
+<script type="text/javascript" src="js/colResizable-1.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/jshashtable-2.1_src.js"></script>
+<script type="text/javascript" src="js/jquery.numberformatter-1.2.3.js"></script>
+<script type="text/javascript" src="js/tmpl.js"></script>
+<script type="text/javascript" src="js/jquery.dependClass-0.1.js"></script>
+<script type="text/javascript" src="js/draggable-0.1.js"></script>
+<script type="text/javascript" src="js/jquery.slider.js"></script>
+<script type="text/javascript" src="js/fullcalendar.js"></script>
+<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="js/jquery.cleditor.min.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="js/blocksit.js"></script>
+<script type="text/javascript" src="js/jquery.montage.js"></script>
+<script type="text/javascript" src="js/raphael.js"></script>
+<script type="text/javascript" src="js/jquery.embedly.js"></script>
+<script type="text/javascript" src="js/flowplayer-3.2.11.min.js"></script>
+<script type="text/javascript" src="js/flowplayer.controls-3.2.10.js"></script>
+<script type="text/javascript" src="js/flowplayer.playlist-3.2.10.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
