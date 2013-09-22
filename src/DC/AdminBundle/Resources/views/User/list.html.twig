@@ -10,7 +10,7 @@
 
         <div class="span10">
           <div class="input-append">
-            <input type="text" style="width:85%" id="search_eq" placeholder="enter username, email or phone"><button type="button" id="search_bt" class="btn">Search!</button>
+            <input type="text" style="width:85%" id="search_eq" placeholder="enter username, email or phone" {% if search != -1 %}value="{{ search }}"{% endif %}><button type="button" id="search_bt" class="btn">Search!</button>
           </div>
         </div>
       </div>
