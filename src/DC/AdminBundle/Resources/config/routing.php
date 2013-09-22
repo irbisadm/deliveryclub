@@ -9,12 +9,10 @@ $collection->add('dc_admin_homepage', new Route('/', array(
     '_controller' => 'DCAdminBundle:Default:index',
 )));
 
-$collection->add('dc_admin_manageusers', new Route('/users', array(
+$collection->add('dc_admin_manageusers_w_search', new Route('/users/{search}/{page}', array(
     '_controller' => 'DCAdminBundle:User:list',
-    'search'      => '-1'
-)));
-$collection->add('dc_admin_manageusers_w_search', new Route('/users/{search}', array(
-    '_controller' => 'DCAdminBundle:User:list',
+    'search'      => '-1',
+    'page'        => '0',
 )));
 
 $collection->add('dc_admin_addusers', new Route('/user', array(
