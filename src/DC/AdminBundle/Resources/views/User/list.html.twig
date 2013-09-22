@@ -1,1 +1,73 @@
 {% extends 'DCAdminBundle:Default:index.html.twig' %}
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+      <div class="widget_wrapper">
+          <div class="widget_header">
+              <h3 class="icos_table">Table with options</h3>
+
+              <div class="widget_option">
+                  <a data-toggle="dropdown" href="#" class="icos_settings"></a>
+                  <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
+                      <li><a href="#" ><i class="icon-plus-sign"></i> Add</a></li>
+                      <li><a href="#" ><i class="icon-trash"></i>Remove</a></li>
+                      <li><a href="#" ><i class="icon-pencil"></i>Edit</a></li>
+                      <li><a href="#" ><i class="icon-heart"></i>Do whatever you like</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="widget_content no-padding">
+              <table width="100%" cellspacing="0" cellpadding="0" class="default_table">
+                  <thead>
+                  <tr>
+                      <td>Column 1</td>
+                      <td>Column 2</td>
+                      <td>Column 3</td>
+                      <td>Column 4</td>
+                      <td>Column 5</td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>Row 1</td>
+                      <td>Row 2</td>
+                      <td>Row 3</td>
+                      <td>Row 4</td>
+                      <td>Row 5</td>
+                  </tr>
+                  <tr>
+                      <td>Row 1</td>
+                      <td>Row 2</td>
+                      <td>Row 3</td>
+                      <td>Row 4</td>
+                      <td>Row 5</td>
+                  </tr>
+                  <tr>
+                      <td>Row 1</td>
+                      <td>Row 2</td>
+                      <td>Row 3</td>
+                      <td>Row 4</td>
+                      <td>Row 5</td>
+                  </tr>
+                  <tr>
+                      <td>Row 1</td>
+                      <td>Row 2</td>
+                      <td>Row 3</td>
+                      <td>Row 4</td>
+                      <td>Row 5</td>
+                  </tr>
+                  <tr>
+                      <td>Row 1</td>
+                      <td>Row 2</td>
+                      <td>Row 3</td>
+                      <td>Row 4</td>
+                      <td>Row 5</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div><!-- widget_wrapper end -->
+  </div>
+</div>
+{% endblock %}
