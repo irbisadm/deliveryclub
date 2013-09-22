@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html {% block meta_lang %}lang="en"{% endblock %}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A complete admin panel theme">
+    <meta name="description" content="{% block meta_description %}A complete admin panel theme{% endblock %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="irbisadm">
 
-    <title>Dashboard</title>
+    <title>{% block title %}Deliveryclub admin{% endblock %}</title>
+    {% block stylesheet %}
     <link rel="stylesheet" href="/bundles/dcadmin/css/bootstrap.css"/>
     <link rel="stylesheet" href="/bundles/dcadmin/css/bootstrap-responsive.css"/>
     <link rel="stylesheet" href="/bundles/dcadmin/css/style.css"/>
     <link rel="stylesheet" href="/bundles/dcadmin/css/plugins.css">
+    {% endblock %}
 
+    {% block javascript_head %}
     <script type="text/javascript" src="/bundles/dcadmin/js/jquery.min.js"></script>
     <script type="text/javascript" src="/bundles/dcadmin/js/jquery.isotope.min.js"></script>
     <script type="text/javascript" src="/bundles/dcadmin/js/jquery.infinitescroll.min.js"></script>
+    {% endblock %}
 
     <!--[if IE]>
     <script type="text/javascript" src="/bundles/dcadmin/js/modernizr.custom.js"></script>
@@ -47,209 +51,7 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <a class="logo" title="" href="#"><img alt="" src="/bundles/dcadmin/img/logo.png"></a>
-            <ul class="user_nav">
-                <li><span>&nbsp;</span></li>
-                <li>
-                    <a href="#" title="Support" rel="tooltip" data-toggle="dropdown" class="icon_support tips menuDrop">
-                        <span class="badge badge-warning">5</span>
-                    </a>
-
-                    <ul class="dropdown-menu pull-right gradient user_dropdown">
-                        <li class="list">
-                            <div class="list_title">
-                                How may I start my job?
-                                <span>Aug 1, 2012 by <a href="#">username</a></span>
-                            </div>
-
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list">
-                            <div class="list_title">
-                                How can i do this and that?
-                                <span>Jul 31, 2012 by <a href="#">username</a></span>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list">
-                            <div class="list_title">
-                                How do they do it!
-                                <span>Jul 30, 2012 by <a href="#">username</a></span>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list list_hidden">
-                            <div class="list_title">
-                                Resolved ticket!
-                                <span>Jul 18, 2012 by <a href="#">username</a></span>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list list_hidden">
-                            <div class="list_title">
-                                Another resolved ticket.
-                                <span>Jun 16, 2012 by <a href="#">username</a></span>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list list_all">
-                            <div class="list_expand">
-                                <a href="#">Show all support tickets</a>
-                            </div>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" title="Messages" data-toggle="dropdown" rel="tooltip" class="tips icon_mail menuDrop">
-                        <span class="badge badge-info">3</span>
-                    </a>
-
-
-                    <ul class="dropdown-menu pull-right gradient user_dropdown">
-                        <li class="list new">
-                            <div class="list_title">
-                                <div class="message">
-                                    From: <span>40m ago by <a href="#">Benjamiin</a></span>
-                                    <a href="#" class="subject">Getting Started on Zend Framework</a>
-                                    <p>Vitae dicta sunt explicabo. Nemo enim dicta ut et.</p>
-                                </div>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list new">
-                            <div class="list_title">
-                                <div class="message">
-                                    From: <span>2 hours ago by <a href="#">Tim</a></span>
-                                    <a href="#" class="subject">Thank you for using bolt.</a>
-                                    <p>Hi,Eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list">
-                            <div class="list_title">
-                                <div class="message">
-                                    From: <span>40m ago <a href="#">Katherine Kate</a></span>
-                                    <p>Lorem ipsum dolor sit amet...</p>
-                                </div>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list list_hidden">
-                            <div class="list_title">
-                                <div class="message">
-                                    From: <span>Yesterday <a href="#">Tim</a></span>
-                                    <a href="" class="subject">Events for the next month</a>
-                                    <p>Hi,Eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                            <div class="list_action">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_027_search.png" class="i_action_view" alt="View"/></button>
-                                        <button class="btn btn-mini"><img src="img/icons/gray/glyphicons_016_bin.png" class="i_action_delete" alt="Delete"/></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list list_all">
-                            <div class="list_expand">
-                                <a href="#">Show all old messages</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" rel="tooltip" title="Search" class="user_search tips icon_search"></a>
-
-                    <div class="search">
-                        <form method="post" action="" class="search_form">
-                            <div class="input-append input_box">
-                                <input type="text" id="appendedInputButton" class="input-small"><button type="button" class="btn">Go!</button>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="#" title="Settings" data-toggle="dropdown" rel="tooltip" class="tips icon_settings menuDrop"></a>
-
-                    <ul class="dropdown-menu pull-right gradient user_dropdown">
-                        <li><a href="#"><i class="icon-user"></i>Profile</a></li>
-                        <li><a href="#"><i class="icon-cog"></i>Account settings</a></li>
-                        <li><a href="index.html"> <i class="icon-share-alt"></i>Logout</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="index.html" title="Logout" rel="tooltip" class="tips icon_logout"></a>
-                </li>
-                <li><span>&nbsp;</span></li>
-            </ul><!-- user_nav end -->
+            {% include 'menu.html.twig' %}
         </div>
     </div>
 </div><!-- header_wrapper end -->
@@ -266,7 +68,7 @@
         </div>
     </div>
 </div><!-- footer_wrapper end -->
-
+{% block javascript_footer %}
 <script type="text/javascript" src="/bundles/dcadmin/js/bootstrap.js"></script>
 <script type="text/javascript" src="/bundles/dcadmin/js/jquery.elastic.source.js"></script>
 <script type="text/javascript" src="/bundles/dcadmin/js/bootstrap-datepicker.js"></script>
@@ -303,5 +105,6 @@
 <script type="text/javascript" src="/bundles/dcadmin/js/flowplayer.controls-3.2.10.js"></script>
 <script type="text/javascript" src="/bundles/dcadmin/js/flowplayer.playlist-3.2.10.js"></script>
 <script type="text/javascript" src="/bundles/dcadmin/js/script.js"></script>
+{% endblock %}
 </body>
 </html>
