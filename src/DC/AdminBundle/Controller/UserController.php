@@ -19,7 +19,7 @@ class UserController extends Controller
         "users"   => $users,
         "search"  => $search,
         "page"    => $page,
-        "maxpage" => ceil(count($users)/40)-1
+        "maxpage" => ceil(count($users)/10)-1
         );
       return $this->render('DCAdminBundle:User:list.html.twig', $params);
     }
