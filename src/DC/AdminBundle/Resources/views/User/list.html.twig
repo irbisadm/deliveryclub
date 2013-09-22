@@ -19,62 +19,83 @@
 </div>
 <div class="row-fluid">
   <div class="span12">
-      <div class="widget_wrapper">
-          <div class="widget_header">
-              <h3 class="icos_table">Users of system</h3>
+    <div class="widget_wrapper">
+      <div class="widget_header">
+        <h3 class="icos_table">Users of system</h3>
 
-              <div class="widget_option">
-                  <a data-toggle="dropdown" href="#" class="icos_settings"></a>
-                  <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
-                      <li><a href="#" ><i class="icon-plus-sign"></i> Add</a></li>
-                      <li><a href="#" ><i class="icon-pencil"></i>Edit</a></li>
-                      <li><a href="#" ><i class="icon-heart"></i>Do whatever you like</a></li>
-                  </ul>
+        <div class="widget_option">
+          <a data-toggle="dropdown" href="#" class="icos_settings"></a>
+          <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
+            <li><a href="#" ><i class="icon-plus-sign"></i> Add</a></li>
+            <li><a href="#" ><i class="icon-pencil"></i>Edit</a></li>
+            <li><a href="#" ><i class="icon-heart"></i>Do whatever you like</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="widget_content no-padding">
+        <table width="100%" cellspacing="0" cellpadding="0" class="default_table">
+          <thead>
+            <tr>
+              <td>Type</td>
+              <td>Username</td>
+              <td>Email</td>
+              <td>Phone</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in users %}
+            <tr>
+              <td>
+                {% if     item.getRole() == 'ROLE_OPERATOR' %}
+                <img width="24" alt="Operator" src="{{ asset('/bundles/dcadmin/img/icons/colored/headset.png') }}"> </td>
+                {% elseif item.getRole() == 'ROLE_ADMIN'%}
+                <img width="24" alt="Administrator" src="{{ asset('/bundles/dcadmin/img/icons/colored/administrator.png') }}">
+                {% elseif item.getRole() == 'ROLE_MANAGER' %}
+                <img width="24" alt="Restaurant manager" src="{{ asset('/bundles/dcadmin/img/icons/colored/group.png') }}">
+                {% elseif item.getRole() == 'ROLE_USER' %}
+                <img width="24" alt="User" src="{{ asset('/bundles/dcadmin/img/icons/colored/user_woman.png') }}">
+                {% else %}
+                <img width="24" alt="Unknown type" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}">
+                {% endif %}
+                <td>{{ item.getUsername() }}</td>
+                <td>{{ item.getEmail() }}</td>
+                <td>{{ item.getPhone() }}</td>
+                <td></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="form_inputs clearfix">
+            <div class="row-fluid">
+              <div class="span2">
+                <label class="control-label">Pagination:</label>
               </div>
-          </div>
 
-          <div class="widget_content no-padding">
-              <table width="100%" cellspacing="0" cellpadding="0" class="default_table">
-                  <thead>
-                  <tr>
-                      <td>Type</td>
-                      <td>Username</td>
-                      <td>Email</td>
-                      <td>Phone</td>
-                      <td>Action</td>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {% for item in users %}
-                  <tr>
-                    <td>
-                      {% if     item.getRole() == 'ROLE_OPERATOR' %}
-                      <img width="24" alt="Operator" src="{{ asset('/bundles/dcadmin/img/icons/colored/headset.png') }}"> </td>
-                      {% elseif item.getRole() == 'ROLE_ADMIN'%}
-                      <img width="24" alt="Administrator" src="{{ asset('/bundles/dcadmin/img/icons/colored/administrator.png') }}">
-                      {% elseif item.getRole() == 'ROLE_MANAGER' %}
-                      <img width="24" alt="Restaurant manager" src="{{ asset('/bundles/dcadmin/img/icons/colored/group.png') }}">
-                      {% elseif item.getRole() == 'ROLE_USER' %}
-                      <img width="24" alt="User" src="{{ asset('/bundles/dcadmin/img/icons/colored/user_woman.png') }}">
-                      {% else %}
-                      <img width="24" alt="Unknown type" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}">
-                      {% endif %}
-                    <td>{{ item.getUsername() }}</td>
-                    <td>{{ item.getEmail() }}</td>
-                    <td>{{ item.getPhone() }}</td>
-                    <td></td>
-                  </tr>
-                  {% endfor %}
-                  </tbody>
-              </table>
+              <div class="span9">
+                <div class="pagination">
+                  <ul>
+                    {% if page != 0 %}
+                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/0">← First</a></li>
+                    <li><a href="#">{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page-1 }}</a></li>
+                    {% endif %}
+                    <li><a href="#">Next</a></li>
+                    <li><a href="#">Last →</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
       </div><!-- widget_wrapper end -->
+    </div>
   </div>
 </div>
 {% endblock %}
 
 {% block javascript_footer %}
- {{ parent() }}
+{{ parent() }}
 <script type="text/javascript" charset="utf-8" async defer>
 $(function() {
   $('#search_bt').click(function(event) {

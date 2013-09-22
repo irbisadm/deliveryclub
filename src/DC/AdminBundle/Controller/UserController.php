@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
 {
-    public function listAction($search){
+    public function listAction($search,$page){
       $repository = $this->getDoctrine()
                     ->getRepository('DCShowcaseBundle:User');
       if($search!="-1")
@@ -16,7 +16,8 @@ class UserController extends Controller
         $users = $repository->findAll();
       $params = array(
         "users" => $users,
-        "search"=> $search
+        "search"=> $search,
+        "page"  => $page
         );
       return $this->render('DCAdminBundle:User:list.html.twig', $params);
     }
