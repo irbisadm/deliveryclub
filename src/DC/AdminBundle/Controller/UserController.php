@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     public function createAction($type = null){
-      $param = array(
+      $params = array(
         "user_object" => "" 
         );
       return $this->render('DCAdminBundle:User:create.html.twig'$params);
