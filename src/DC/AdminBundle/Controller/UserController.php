@@ -10,7 +10,7 @@ class UserController extends Controller
     public function listAction($search,$page){
       $repository = $this->getDoctrine()
                     ->getRepository('DCShowcaseBundle:User');
-      $onpage = 10;
+      $onpage = 20;
       $offset = $onpage*$page;
       $users = $repository->searchUsers($search,$onpage,$offset);
       $count_users = $repository->countSearchUsers($search);
