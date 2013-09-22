@@ -1,6 +1,6 @@
 <?php
 
-namespace DC\ShowcaseBundle\Controller;
+namespace DC\AdminBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
