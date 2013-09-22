@@ -37,26 +37,72 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         return $user;
     }
 
-    public function searchUsers($query)
+    public function searchUsers($query,$limit,$offset)
     {
-        $query = '%'.$query.'%';
-        $q = $this
-            ->createQueryBuilder('u')
-            ->where('u.username LIKE :username OR u.email LIKE :email OR u.phone LIKE :phone')
-            ->setParameter('username', $query)
-            ->setParameter('email', $query)
-            ->setParameter('phone', $query)
-            ->getQuery();
+        if($query!=-1)
+        {
+            $query = '%'.$query.'%';
+            $q = $this
+                ->createQueryBuilder('u')
+                ->where('u.username LIKE :username OR u.email LIKE :email OR u.phone LIKE :phone')
+                ->setParameter('username', $query)
+                ->setParameter('email', $query)
+                ->setParameter('phone', $query)
+                ->orderBy('u.id','ASC')
+                ->setMaxResults($limit)
+                ->setFirstResult($offset)
+                ->getQuery();
+        }else{
+
+            $q=$this
+                ->createQueryBuilder('u')
+                ->orderBy('u.id','ASC')
+                ->setMaxResults($limit)
+                ->setFirstResult($offset)
+                ->getQuery();
+        }
         try {
             $users = $q->getResult();
         } catch (NoResultException $e) {
             $message = sprintf(
                 'Unable to find an active user DCShowcaseBundle:User object identified by "%s".',
-                $username
+                $query
             );
             throw new UsernameNotFoundException($message, 0, $e);
         }
         return $users;
+    }
+
+    public function countSearchUsers($query)
+    {
+        if($query!=-1)
+        {
+            $query = '%'.$query.'%';
+            $q = $this
+                ->createQueryBuilder('u')
+                ->select('count(u.id)')
+                ->where('u.username LIKE :username OR u.email LIKE :email OR u.phone LIKE :phone')
+                ->setParameter('username', $query)
+                ->setParameter('email', $query)
+                ->setParameter('phone', $query)
+                ->getQuery();
+        }else{
+
+            $q = $this
+                ->createQueryBuilder('u')
+                ->select('count(u.id)')
+                ->getQuery();
+        }
+        try {
+            $count_users = $q->getSingleScalarResult();
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active user DCShowcaseBundle:User object identified by "%s".',
+                $query
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+        return $count_users;
     }
 
 

@@ -10,16 +10,16 @@ class UserController extends Controller
     public function listAction($search,$page){
       $repository = $this->getDoctrine()
                     ->getRepository('DCShowcaseBundle:User');
-      if($search!="-1")
-        $users = $repository->searchUsers($search);
-      else
-        $users = $repository->findAll();
-
+      $onpage = 10;
+      $offset = $onpage*$page;
+      $users = $repository->searchUsers($search,$limit,$offset);
+      $count_users = $repository->countSearchUsers($search);
+      
       $params = array(
         "users"   => $users,
         "search"  => $search,
         "page"    => $page,
-        "maxpage" => ceil(count($users)/10)-1
+        "maxpage" => ceil($count_users/$onpage)-1
         );
       return $this->render('DCAdminBundle:User:list.html.twig', $params);
     }
