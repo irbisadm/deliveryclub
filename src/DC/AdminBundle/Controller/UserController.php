@@ -15,9 +15,10 @@ class UserController extends Controller
       else
         $users = $repository->findAll();
       $params = array(
-        "users" => $users,
-        "search"=> $search,
-        "page"  => $page
+        "users"   => $users,
+        "search"  => $search,
+        "page"    => $page,
+        "maxpage" => ceil(count($users)/40)
         );
       return $this->render('DCAdminBundle:User:list.html.twig', $params);
     }
