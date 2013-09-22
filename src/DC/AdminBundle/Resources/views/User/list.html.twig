@@ -78,7 +78,10 @@
 <script type="text/javascript" charset="utf-8" async defer>
 $(function() {
   $('#search_bt').click(function(event) {
-   document.location = '{{ path('dc_admin_manageusers') }}/'+$('#search_eq').val();
+    if($('#search_eq').val().length()>0)
+      document.location = '{{ path('dc_admin_manageusers') }}/'+$('#search_eq').val();
+    else 
+      document.location = '{{ path('dc_admin_manageusers') }}';
   });
 });
 </script>
