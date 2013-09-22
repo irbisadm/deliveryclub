@@ -46,16 +46,29 @@
 </head>
 
 <body>
+{% include 'DCAdminBundle:Default:menu.html.twig' %}
+{% include 'DCAdminBundle:Default:hightlights.html.twig' %}
 
-<div class="header_wrapper">
+<div class="contentainer_wrapper">
     <div class="container-fluid">
         <div class="row-fluid">
-            <a class="logo" title="" href="#"><img alt="" src="/bundles/dcadmin/img/logo.png"></a>
-            {% include 'DCAdminBundle:Default:menu.html.twig' %}
+            <div class="span12">
+
+                <div class="wrapper">
+                    {% include 'DCAdminBundle:Default:sidebar_navigation.html.twig' %}
+                    <div class="content_wrapper">
+
+                        <div class="contents">
+                        {% block content %}
+                        {% endblock %}
+                        </div><!-- content end -->
+
+                    </div><!-- content_wrapper end -->
+                </div><!-- wrapper end -->
+            </div>
         </div>
     </div>
-</div><!-- header_wrapper end -->
-
+</div><!-- container_wrapper end -->
 
 <div class="footer_wrapper">
     <div class="container-fluid">
