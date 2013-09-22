@@ -9,26 +9,26 @@
 
     <title>{% block title %}Deliveryclub admin{% endblock %}</title>
     {% block stylesheet %}
-    <link rel="stylesheet" href="/bundles/dcadmin/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/bundles/dcadmin/css/bootstrap-responsive.css"/>
-    <link rel="stylesheet" href="/bundles/dcadmin/css/style.css"/>
-    <link rel="stylesheet" href="/bundles/dcadmin/css/plugins.css">
+    <link rel="stylesheet" href="{{ asset('/bundles/dcadmin/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/bundles/dcadmin/css/bootstrap-responsive.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/bundles/dcadmin/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/bundles/dcadmin/css/plugins.css') }}">
     {% endblock %}
 
     {% block javascript_head %}
-    <script type="text/javascript" src="/bundles/dcadmin/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/bundles/dcadmin/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="/bundles/dcadmin/js/jquery.infinitescroll.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.isotope.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.infinitescroll.min.js') }}"></script>
     {% endblock %}
 
     <!--[if IE]>
-    <script type="text/javascript" src="/bundles/dcadmin/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/bundles/dcadmin/js/excanvas.js"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/modernizr.custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/excanvas.js') }}"></script>
     <![endif]-->
 
     <!--[if IE 8]>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
-    <link href="/bundles/dcadmin/css/ie8.css" rel="stylesheet">
+    <link href="{{ asset('/bundles/dcadmin/css/ie8.css') }}" rel="stylesheet">
     <![endif]-->
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -82,42 +82,42 @@
     </div>
 </div><!-- footer_wrapper end -->
 {% block javascript_footer %}
-<script type="text/javascript" src="/bundles/dcadmin/js/bootstrap.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.elastic.source.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/bootstrap-colorpicker.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.maskedinput-1.3.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.uniform.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/chosen.jquery.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.ibutton.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.ui.spinner.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.validationEngine-en.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.validationEngine.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.validate.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.smartWizard-2.0.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.filedrop.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/colResizable-1.3.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jshashtable-2.1_src.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.numberformatter-1.2.3.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/tmpl.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.dependClass-0.1.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/draggable-0.1.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.slider.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/fullcalendar.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.easytabs.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.cleditor.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.colorbox.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/blocksit.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.montage.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/raphael.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/jquery.embedly.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/flowplayer-3.2.11.min.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/flowplayer.controls-3.2.10.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/flowplayer.playlist-3.2.10.js"></script>
-<script type="text/javascript" src="/bundles/dcadmin/js/script.js"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.elastic.source.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/bootstrap-datepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/bootstrap-colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.maskedinput-1.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.uniform.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/chosen.jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.ibutton.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.ui.spinner.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.mousewheel.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.validationEngine-en.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.validationEngine.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.validate.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.smartWizard-2.0.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.filedrop.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/colResizable-1.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.tablesorter.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.dataTables.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jshashtable-2.1_src.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.numberformatter-1.2.3.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/tmpl.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.dependClass-0.1.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/draggable-0.1.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.slider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/fullcalendar.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.easytabs.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.cleditor.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.colorbox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/blocksit.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.montage.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/raphael.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/jquery.embedly.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/flowplayer-3.2.11.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/flowplayer.controls-3.2.10.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/flowplayer.playlist-3.2.10.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/dcadmin/js/script.js') }}"></script>
 {% endblock %}
 </body>
 </html>
