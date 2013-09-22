@@ -39,6 +39,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
 
     public function searchUsers($query)
     {
+        $query = '%'.$query.'%';
         $q = $this
             ->createQueryBuilder('u')
             ->where('u.username LIKE :username OR u.email LIKE :email OR u.phone LIKE :phone')
