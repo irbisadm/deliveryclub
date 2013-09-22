@@ -25,6 +25,6 @@ class UserController extends Controller
       $params = array(
         "user_object" => "" 
         );
-      return $this->render('DCAdminBundle:User:create.html.twig'$params);
+      return $this->render('DCAdminBundle:User:create.html.twig',$params);
     }
 }
