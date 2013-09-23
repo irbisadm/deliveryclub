@@ -26,9 +26,7 @@
         <div class="widget_option">
           <a data-toggle="dropdown" href="#" class="icos_settings"></a>
           <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
-            <li><a href="#" ><i class="icon-plus-sign"></i> Add</a></li>
-            <li><a href="#" ><i class="icon-pencil"></i>Edit</a></li>
-            <li><a href="#" ><i class="icon-heart"></i>Do whatever you like</a></li>
+            <li><a href="{{ path('dc_admin_edit_users') }}" ><i class="icon-plus-sign"></i> Add</a></li>
           </ul>
         </div>
       </div>
@@ -62,7 +60,7 @@
                 <td>{{ item.getUsername() }}</td>
                 <td>{{ item.getEmail() }}</td>
                 <td>{{ item.getPhone() }}</td>
-                <td></td>
+                <td><a href="{{ path('dc_admin_edit_users') }}/{{ item.getId() }}" title="Edit {{ item.getUsername() }} user">Edit</a></td>
               </tr>
               {% endfor %}
             </tbody>
@@ -103,9 +101,9 @@
 $(function() {
   $('#search_bt').click(function(event) {
     if($('#search_eq').val().length>0)
-      document.location = '{{ path('dc_admin_manageusers') }}/'+$('#search_eq').val();
+      document.location = '{{ path('dc_admin_manage_users') }}/'+$('#search_eq').val();
     else 
-      document.location = '{{ path('dc_admin_manageusers') }}';
+      document.location = '{{ path('dc_admin_manage_users') }}';
   });
 });
 </script>

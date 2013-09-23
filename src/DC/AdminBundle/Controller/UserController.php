@@ -36,10 +36,9 @@ class UserController extends Controller
       return $this->render('DCAdminBundle:User:edit.html.twig', $params);
     }
 
-    public function createAction($type = null){
-      $params = array(
-        "user_object" => "" 
-        );
-      return $this->render('DCAdminBundle:User:create.html.twig',$params);
+    public function bannAction($user_id)
+    {
+      
     }
+
 }
