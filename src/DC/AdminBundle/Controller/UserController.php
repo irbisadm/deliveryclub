@@ -25,6 +25,11 @@ class UserController extends Controller
     }
 
     public function editAction($user_id){
+      $repository = $this->getDoctrine()
+                    ->getRepository('DCShowcaseBundle:User');
+      $user = $repository->getOneById($user_id);
+
+     
       $params =  array(
         "user_object" => ""
         );
