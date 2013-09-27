@@ -24,7 +24,7 @@ $collection->add('dc_admin_bann_users', new Route('/bannhammer/user/{id}',array(
     '_controller' => 'DCAdminBundle:User:bann'
 )));
 
-$collection->add('dc_admin_manage_restaurant', new Route('/restaurants/{search}/{page}',array(
+$collection->add('dc_admin_manage_restaurants', new Route('/restaurants/{search}/{page}',array(
     '_controller' => 'DCAdminBundle:Restaurant:list',
     'search'      => '-1',
     'page'        => '0'
