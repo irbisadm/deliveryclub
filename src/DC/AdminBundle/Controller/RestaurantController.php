@@ -9,6 +9,7 @@ class RestaurantController extends Controller
 {
     public function listAction($search,$page){
       $repository       = $this->getDoctrine()
+                          ->getManager()
                           ->getRepository('DCShowcaseBundle:Restaurant');
       $onpage           = 20;
       $offset           = $onpage*$page;
