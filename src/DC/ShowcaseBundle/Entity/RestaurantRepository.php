@@ -48,7 +48,7 @@ class RestaurantRepository extends EntityRepository
         return $users;
     }
 
-    public function countSearchUsers($query)
+    public function countSearchRestaurant($query)
     {
         if($query!=-1)
         {
