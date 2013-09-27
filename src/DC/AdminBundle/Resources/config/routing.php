@@ -36,6 +36,11 @@ $collection->add('dc_admin_moderate_restaurant', new Route('/moderate/restaurant
     'page'        => '0'
 )));
 
+$collection->add('dc_admin_manage_orders', new Route('/moderate/orders/{search}/{page}',array(
+    '_controller' => 'DCAdminBundle:Order:list',
+    'search'      => '-1',
+    'page'        => '0'
+)));
 
 
 return $collection;
