@@ -8,11 +8,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class RestaurantController extends Controller
 {
     public function listAction($search,$page){
+      $repository       = $this->getDoctrine()
+                          ->getRepository('DCShowcaseBundle:Restaurant');
+      $onpage           = 20;
+      $offset           = $onpage*$page;
+      $restaurant       = $repository->searchRestaurant($search,$onpage,$offset);
+      $count_restaurant = $repository->countSearchRestaurant($search);
       $params = array(
-        "users"   => $users,
-        "search"  => $search,
-        "page"    => $page,
-        "maxpage" => ceil($count_users/$onpage)-1
+        "restaurant"  => $restaurant,
+        "search"      => $search,
+        "page"        => $page,
+        "maxpage"     => ceil($count_restaurant/$onpage)-1
         );
       return $this->render('DCAdminBundle:Restaurant:list.html.twig', $params);
     }
