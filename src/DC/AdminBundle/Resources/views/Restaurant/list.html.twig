@@ -1,0 +1,104 @@
+{% extends 'DCAdminBundle:Default:index.html.twig' %}
+{% block content %}
+<div class="row-fluid">
+  <div class="span12">
+    <div class="form_inputs clearfix">
+      <div class="row-fluid">
+        <div class="span2">
+          <label class="control-label">User search:</label>
+        </div>
+
+        <div class="span10">
+          <div class="input-append">
+            <input type="text" style="width:85%" id="search_eq" placeholder="enter part of restaurant name, title or description" {% if search != -1 %}value="{{ search }}"{% endif %}><button type="button" id="search_bt" class="btn">Search!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget_wrapper">
+      <div class="widget_header">
+        <h3 class="icos_table">Partners</h3>
+
+        <div class="widget_option">
+          <a data-toggle="dropdown" href="#" class="icos_settings"></a>
+          <ul class="dropdown-menu gradient settings_dropdown widget_option_dropdown pull-right">
+            <li><a href="{{ path('dc_admin_edit_users') }}" ><i class="icon-plus-sign"></i> Add</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="widget_content no-padding">
+        <table width="100%" cellspacing="0" cellpadding="0" class="default_table">
+          <thead>
+            <tr>
+              <td>Status</td>
+              <td>Name/Title</td>
+              <td>Description</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in restaurants %}
+            <tr>
+              <td>
+                {% if     item.getRemoved() %}
+                <img width="24" alt="Removed" src="{{ asset('/bundles/dcadmin/img/icons/colored/cross.png') }}"> </td>
+                {% elseif item.getActive() %}
+                <img width="24" alt="Active" src="{{ asset('/bundles/dcadmin/img/icons/colored/checkmark2.png') }}">
+                {% else %}
+                <img width="24" alt="Unactive" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}">
+                {% endif %}
+                <td>{{ item.getName() }}<br><small>{{ item.getTitle() }}</small></td>
+                <td>{{ item.getDescriprion() }}</td>
+                <td></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% if maxpage!=0 %}
+          <div class="form_inputs clearfix">
+            <div class="row-fluid">
+              <div class="span3">
+                Totall: {{ maxpage+1 }} pages.
+              </div>
+              <div class="span6">
+                <div class="pagination">
+                  <ul>
+                    {% if page != 0 %}
+                    <li><a href="{{ path('dc_admin_manage_restaurants') }}/{{ search }}/0">← First</a></li>
+                    <li><a href="{{ path('dc_admin_manage_restaurants') }}/{{ search }}/{{ page-1 }}">Prev</a></li>
+                    {% endif %}
+                    {% if page != maxpage %}
+                    <li><a href="{{ path('dc_admin_manage_restaurants') }}/{{ search }}/{{ page+1 }}">Next</a></li>
+                    <li><a href="{{ path('dc_admin_manage_restaurants') }}/{{ search }}/{{ maxpage }}">Last →</a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div><!-- widget_wrapper end -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript_footer %}
+{{ parent() }}
+<script type="text/javascript" charset="utf-8" async defer>
+$(function() {
+  $('#search_bt').click(function(event) {
+    if($('#search_eq').val().length>0)
+      document.location = '{{ path('dc_admin_manage_restaurants') }}/'+$('#search_eq').val();
+    else 
+      document.location = '{{ path('dc_admin_manage_restaurants') }}';
+  });
+});
+</script>
+{% endblock %}
