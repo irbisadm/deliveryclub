@@ -75,12 +75,12 @@
                 <div class="pagination">
                   <ul>
                     {% if page != 0 %}
-                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/0">← First</a></li>
-                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page-1 }}">Prev</a></li>
+                    <li><a href="{{ path('dc_admin_manage_users') }}/{{ search }}/0">← First</a></li>
+                    <li><a href="{{ path('dc_admin_manage_users') }}/{{ search }}/{{ page-1 }}">Prev</a></li>
                     {% endif %}
                     {% if page != maxpage %}
-                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/{{ page+1 }}">Next</a></li>
-                    <li><a href="{{ path('dc_admin_manageusers') }}/{{ search }}/{{ maxpage }}">Last →</a></li>
+                    <li><a href="{{ path('dc_admin_manage_users') }}/{{ search }}/{{ page+1 }}">Next</a></li>
+                    <li><a href="{{ path('dc_admin_manage_users') }}/{{ search }}/{{ maxpage }}">Last →</a></li>
                     {% endif %}
                   </ul>
                 </div>
