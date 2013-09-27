@@ -340,4 +340,142 @@ class RestaurantPlace
     {
         return $this->lat;
     }
+
+    /**
+     * Set isValidated
+     *
+     * @param boolean $isValidated
+     * @return RestaurantPlace
+     */
+    public function setIsValidated($isValidated)
+    {
+        $this->isValidated = $isValidated;
+    
+        return $this;
+    }
+
+    /**
+     * Get isValidated
+     *
+     * @return boolean 
+     */
+    public function getIsValidated()
+    {
+        return $this->isValidated;
+    }
+
+    /**
+     * Set isConfirming
+     *
+     * @param boolean $isConfirming
+     * @return RestaurantPlace
+     */
+    public function setIsConfirming($isConfirming)
+    {
+        $this->isConfirming = $isConfirming;
+    
+        return $this;
+    }
+
+    /**
+     * Get isConfirming
+     *
+     * @return boolean 
+     */
+    public function getIsConfirming()
+    {
+        return $this->isConfirming;
+    }
+
+    /**
+     * Set confirmingDescription
+     *
+     * @param string $confirmingDescription
+     * @return RestaurantPlace
+     */
+    public function setConfirmingDescription($confirmingDescription)
+    {
+        $this->confirmingDescription = $confirmingDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get confirmingDescription
+     *
+     * @return string 
+     */
+    public function getConfirmingDescription()
+    {
+        return $this->confirmingDescription;
+    }
+
+    /**
+     * Set notifEmail
+     *
+     * @param string $notifEmail
+     * @return RestaurantPlace
+     */
+    public function setNotifEmail($notifEmail)
+    {
+        $this->notifEmail = $notifEmail;
+    
+        return $this;
+    }
+
+    /**
+     * Get notifEmail
+     *
+     * @return string 
+     */
+    public function getNotifEmail()
+    {
+        return $this->notifEmail;
+    }
+
+    /**
+     * Set notifPhoneCode
+     *
+     * @param string $notifPhoneCode
+     * @return RestaurantPlace
+     */
+    public function setNotifPhoneCode($notifPhoneCode)
+    {
+        $this->notifPhoneCode = $notifPhoneCode;
+    
+        return $this;
+    }
+
+    /**
+     * Get notifPhoneCode
+     *
+     * @return string 
+     */
+    public function getNotifPhoneCode()
+    {
+        return $this->notifPhoneCode;
+    }
+
+    /**
+     * Set notifPhone
+     *
+     * @param string $notifPhone
+     * @return RestaurantPlace
+     */
+    public function setNotifPhone($notifPhone)
+    {
+        $this->notifPhone = $notifPhone;
+    
+        return $this;
+    }
+
+    /**
+     * Get notifPhone
+     *
+     * @return string 
+     */
+    public function getNotifPhone()
+    {
+        return $this->notifPhone;
+    }
 }

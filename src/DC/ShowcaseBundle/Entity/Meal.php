@@ -359,4 +359,37 @@ class Meal
     {
         return $this->months;
     }
+
+    /**
+     * Add park_domains
+     *
+     * @param \DC\ShowcaseBundle\Entity\MealAttribute $parkDomains
+     * @return Meal
+     */
+    public function addParkDomain(\DC\ShowcaseBundle\Entity\MealAttribute $parkDomains)
+    {
+        $this->park_domains[] = $parkDomains;
+    
+        return $this;
+    }
+
+    /**
+     * Remove park_domains
+     *
+     * @param \DC\ShowcaseBundle\Entity\MealAttribute $parkDomains
+     */
+    public function removeParkDomain(\DC\ShowcaseBundle\Entity\MealAttribute $parkDomains)
+    {
+        $this->park_domains->removeElement($parkDomains);
+    }
+
+    /**
+     * Get park_domains
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParkDomains()
+    {
+        return $this->park_domains;
+    }
 }

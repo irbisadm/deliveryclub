@@ -259,4 +259,50 @@ class Restaurant
     {
         return $this->title;
     }
+
+    /**
+     * Set notifEmail
+     *
+     * @param string $notifEmail
+     * @return Restaurant
+     */
+    public function setNotifEmail($notifEmail)
+    {
+        $this->notifEmail = $notifEmail;
+    
+        return $this;
+    }
+
+    /**
+     * Get notifEmail
+     *
+     * @return string 
+     */
+    public function getNotifEmail()
+    {
+        return $this->notifEmail;
+    }
+
+    /**
+     * Set isSendingAllOrders
+     *
+     * @param boolean $isSendingAllOrders
+     * @return Restaurant
+     */
+    public function setIsSendingAllOrders($isSendingAllOrders)
+    {
+        $this->isSendingAllOrders = $isSendingAllOrders;
+    
+        return $this;
+    }
+
+    /**
+     * Get isSendingAllOrders
+     *
+     * @return boolean 
+     */
+    public function getIsSendingAllOrders()
+    {
+        return $this->isSendingAllOrders;
+    }
 }

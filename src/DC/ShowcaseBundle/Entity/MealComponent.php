@@ -36,4 +36,50 @@ class MealComponent
     {
         return $this->id;
     }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return MealComponent
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set removed
+     *
+     * @param boolean $removed
+     * @return MealComponent
+     */
+    public function setRemoved($removed)
+    {
+        $this->removed = $removed;
+    
+        return $this;
+    }
+
+    /**
+     * Get removed
+     *
+     * @return boolean 
+     */
+    public function getRemoved()
+    {
+        return $this->removed;
+    }
 }

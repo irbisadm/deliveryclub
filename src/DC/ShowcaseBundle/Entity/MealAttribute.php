@@ -144,4 +144,27 @@ class MealAttribute
     {
         return $this->x_value;
     }
+
+    /**
+     * Set meal
+     *
+     * @param \DC\ShowcaseBundle\Entity\Meal $meal
+     * @return MealAttribute
+     */
+    public function setMeal(\DC\ShowcaseBundle\Entity\Meal $meal = null)
+    {
+        $this->meal = $meal;
+    
+        return $this;
+    }
+
+    /**
+     * Get meal
+     *
+     * @return \DC\ShowcaseBundle\Entity\Meal 
+     */
+    public function getMeal()
+    {
+        return $this->meal;
+    }
 }
