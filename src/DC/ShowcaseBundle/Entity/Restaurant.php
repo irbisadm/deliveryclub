@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * DC\ShowcaseBundle\Entity\Restaurant
  *
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="DC\ShowcaseBundle\Entity\RestaurantRepository")
+ * @ORM\Entity(repositoryClass="DC\ShowcaseBundle\Entity\RestaurantMainRepository")
  */
 class Restaurant
 {
