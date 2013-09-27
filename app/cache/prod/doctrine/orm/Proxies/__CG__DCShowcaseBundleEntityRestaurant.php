@@ -171,6 +171,18 @@ class Restaurant extends \DC\ShowcaseBundle\Entity\Restaurant implements \Doctri
         return parent::getIsSendingAllOrders();
     }
 
+    public function searchRestaurant($query, $limit, $offset)
+    {
+        $this->__load();
+        return parent::searchRestaurant($query, $limit, $offset);
+    }
+
+    public function countSearchUsers($query)
+    {
+        $this->__load();
+        return parent::countSearchUsers($query);
+    }
+
 
     public function __sleep()
     {
