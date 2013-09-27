@@ -13,13 +13,13 @@ class RestaurantController extends Controller
                           ->getRepository('DCShowcaseBundle:Restaurant');
       $onpage           = 20;
       $offset           = $onpage*$page;
-      $restaurant       = $repository->searchRestaurant($search,$onpage,$offset);
-      $count_restaurant = $repository->countSearchRestaurant($search);
+      $restaurants      = $repository->searchRestaurant($search,$onpage,$offset);
+      $count_restaurants= $repository->countSearchRestaurant($search);
       $params = array(
-        "restaurant"  => $restaurant,
+        "restaurants"  => $restaurants,
         "search"      => $search,
         "page"        => $page,
-        "maxpage"     => ceil($count_restaurant/$onpage)-1
+        "maxpage"     => ceil($count_restaurants/$onpage)-1
         );
       return $this->render('DCAdminBundle:Restaurant:list.html.twig', $params);
     }
