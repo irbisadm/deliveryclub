@@ -47,15 +47,16 @@
             <tr>
               <td>
                 {% if     item.getRemoved() %}
-                <img width="24" alt="Removed" src="{{ asset('/bundles/dcadmin/img/icons/colored/cross.png') }}"> </td>
+                <img width="24" alt="Removed" data-original-title="Removed" src="{{ asset('/bundles/dcadmin/img/icons/colored/cross.png') }}" class="tip-right"> 
                 {% elseif item.getActive() %}
-                <img width="24" alt="Active" src="{{ asset('/bundles/dcadmin/img/icons/colored/checkmark2.png') }}">
+                <img width="24" alt="Active" data-original-title="Active" src="{{ asset('/bundles/dcadmin/img/icons/colored/checkmark2.png') }}" class="tip-right">
                 {% else %}
-                <img width="24" alt="Unactive" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}">
+                <img width="24" alt="Unactive" data-original-title="Unactive" src="{{ asset('/bundles/dcadmin/img/icons/colored/cancel.png') }}" class="tip-right">
                 {% endif %}
-                <td>{{ item.getName() }}<br><small>{{ item.getTitle() }}</small></td>
-                <td>{{ item.getDescriprion() }}</td>
-                <td></td>
+              </td>
+              <td>{{ item.getName() }}<br><small>{{ item.getTitle() }}</small></td>
+              <td>{{ item.getDescriprion() }}</td>
+              <td><a href="{{ path('dc_admin_edit_restaurants') }}/{{ item.getId() }}" title="Edit {{ item.getUsername() }} user">Edit</a></td>
               </tr>
               {% endfor %}
             </tbody>
