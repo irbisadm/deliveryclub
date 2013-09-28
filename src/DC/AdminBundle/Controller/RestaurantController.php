@@ -25,6 +25,18 @@ class RestaurantController extends Controller
     }
 
     public function editAction($restaurant_id){
+      if($restaurant_id!==-1){
+        $restaurant = new Restaurant();
+      }else{
+        $repository = $this->getDoctrine()
+                      ->getManager()
+                      ->getRepository('DCShowcaseBundle:Restaurant');
+        $restaurant = $repository->findOneById($restaurant_id);
+      }
+      $form = $this->createForm('create_admin_restaurant', $task);
+      $params = array(
+        "form" => $form
+      );
       return $this->render('DCAdminBundle:Restaurant:edit.html.twig', $params);
     }
 
