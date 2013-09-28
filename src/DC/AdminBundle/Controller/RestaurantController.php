@@ -27,6 +27,8 @@ class RestaurantController extends Controller
     }
 
     public function editAction($id,Request $request){
+      var_dump($id);
+      die();
       if($id!==-1){
         $restaurant = new Restaurant();
       }else{
