@@ -274,17 +274,8 @@
 
 {% block submit_widget %}
 {% spaceless %}
-<div class="form_inputs clearfix">
-    <div class="row-fluid">
-        <div class="span2">
-            <label class="control-label">&nbsp;</label>
-        </div>
-
-        <div class="span9">
-            <input type="submit" class="btn" {% if value is not empty %}value="{{ value }}" {% endif %}/>
-        </div>
-    </div>
-</div>
+    {% set type = type|default('submit') %}
+    {{ block('button_widget') }}
 {% endspaceless %}
 {% endblock submit_widget %}
 
