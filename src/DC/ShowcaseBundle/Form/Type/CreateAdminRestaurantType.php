@@ -14,7 +14,6 @@ class CreateAdminRestaurantType extends AbstractType{
             ->add('notifEmail','text')
             ->add('isSendingAllOrders','checkbox')
             ->add('active','checkbox')
-            ->add('park_domains','text')
             ->add('save', 'submit')
             ->add('delete', 'submit');
   }
