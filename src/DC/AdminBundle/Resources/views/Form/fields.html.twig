@@ -268,7 +268,18 @@
     {% if label is empty %}
         {% set label = name|humanize %}
     {% endif %}
-    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+
+    <div class="form_inputs clearfix">
+        <div class="row-fluid">
+            <div class="span2">
+                <label class="control-label">&nbsp;</label>
+            </div>
+
+            <div class="span9">
+                <button type="{{ type|default('button') }}" class="{{ class }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+            </div>
+        </div>
+    </div>
 {% endspaceless %}
 {% endblock button_widget %}
 
