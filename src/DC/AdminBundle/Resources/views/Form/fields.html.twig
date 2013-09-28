@@ -7,5 +7,21 @@
     </div>
 {% endspaceless %}
 {% endblock form_row %} 
-{% block form %}
-{% endblock form %}
+{% block form_widget_compound %}
+<div {{ block('widget_container_attributes') }}>
+    {% if form.parent is empty %}
+        {{ form_errors(form) }}
+    {% endif %}
+    {% if form.vars.groups is defined %}
+        {% for group,items in form.vars.groups %}
+        <fieldset>
+            <legend>{{ group|title|trans({}, translation_domain) }}</legend>
+            {% for item in items %}
+                {{ form_row(form[item]) }}
+            {% endfor %}
+        </fieldset>
+        {% endfor %}
+    {% endif %}
+    {{ form_rest(form) }}
+</div>
+{% endblock form_widget_compound %}
