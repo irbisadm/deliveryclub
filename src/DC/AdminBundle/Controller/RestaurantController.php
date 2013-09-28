@@ -40,7 +40,7 @@ class RestaurantController extends Controller
       if($form->isValid())
       {
         $em = $this->getDoctrine()->getManager();
-        $restaurant->removed = false;
+        $restaurant->setRemoved(false);
         $em->persist($restaurant);
         $em->flush();
 
