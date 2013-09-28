@@ -8,11 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class CreateAdminRestaurantType extends AbstractType{
 
   public function buildForm(FormBuilderInterface $builder, array $options){
-    $builder->add('name','text',array(
-                                'attr'=>array(
-                                        'placeholder'=>'Тратататата'
-                                        )
-                                ))
+    $builder->add('name','text')
             ->add('title','text')
             ->add('descriprion','textarea')
             ->add('notifEmail','text')
