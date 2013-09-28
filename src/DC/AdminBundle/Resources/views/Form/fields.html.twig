@@ -82,7 +82,7 @@
 
 {% block textarea_widget %}
 {% spaceless %}
-    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <textarea {{ block('widget_attributes') }} style="overflow: hidden;">{{ value }}</textarea>
 {% endspaceless %}
 {% endblock textarea_widget %}
 
@@ -146,7 +146,7 @@
 
 {% block checkbox_widget %}
 {% spaceless %}
-    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} class="chkbox1" />
 {% endspaceless %}
 {% endblock checkbox_widget %}
 

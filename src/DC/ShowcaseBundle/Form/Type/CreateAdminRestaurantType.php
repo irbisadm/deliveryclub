@@ -11,7 +11,7 @@ class CreateAdminRestaurantType extends AbstractType{
     $builder->add('name','text')
             ->add('title','text')
             ->add('descriprion','textarea')
-            ->add('notifEmail','text')
+            ->add('notifEmail','email')
             ->add('isSendingAllOrders','checkbox')
             ->add('active','checkbox')
             ->add('save', 'submit')
