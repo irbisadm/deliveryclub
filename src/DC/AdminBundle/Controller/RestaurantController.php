@@ -36,7 +36,7 @@ class RestaurantController extends Controller
       }
       $form = $this->createForm('create_admin_restaurant', $restaurant);
       $params = array(
-        "form" => $form
+        "form" => $form->getForm()
       );
       return $this->render('DCAdminBundle:Restaurant:edit.html.twig', $params);
     }
