@@ -1,5 +1,6 @@
 {% extends 'DCAdminBundle:Default:index.html.twig' %}
 {% block content %}
+{% spaceless %}
 <div class="row-fluid">
   <div class="span12">
     <div class="form_inputs clearfix">
@@ -93,10 +94,12 @@
     </div>
   </div>
 </div>
+{% endspaceless %}
 {% endblock %}
 
 {% block javascript_footer %}
 {{ parent() }}
+{% spaceless %}
 <script type="text/javascript" charset="utf-8" async defer>
 $(function() {
   $('#search_bt').click(function(event) {
@@ -107,4 +110,5 @@ $(function() {
   });
 });
 </script>
+{% endspaceless %}
 {% endblock %}
