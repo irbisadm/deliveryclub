@@ -42,6 +42,8 @@ class RestaurantController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($restaurant);
         $em->flush();
+        
+        return $this->redirect($this->generateUrl('dc_admin_manage_restaurants'));
       }
       $params = array(
         "form" => $form->createView()
