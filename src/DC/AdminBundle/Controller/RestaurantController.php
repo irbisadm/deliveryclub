@@ -2,6 +2,7 @@
 
 namespace DC\AdminBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use DC\ShowcaseBundle\Entity\Restaurant;
@@ -25,7 +26,7 @@ class RestaurantController extends Controller
       return $this->render('DCAdminBundle:Restaurant:list.html.twig', $params);
     }
 
-    public function editAction($id){
+    public function editAction($id,Request $request){
       if($id!==-1){
         $restaurant = new Restaurant();
       }else{
@@ -35,6 +36,8 @@ class RestaurantController extends Controller
         $restaurant = $repository->findOneById($id);
       }
       $form = $this->createForm('create_admin_restaurant', $restaurant);
+      $form->handleRequest($request);
+      
       $params = array(
         "form" => $form->createView()
       );
