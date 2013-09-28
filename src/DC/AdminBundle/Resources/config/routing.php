@@ -30,6 +30,11 @@ $collection->add('dc_admin_manage_restaurants', new Route('/restaurants/{search}
     'page'        => '0'
 )));
 
+$collection->add('dc_admin_edit_restaurants', new Route('/restaurant/{id}', array(
+    '_controller' => 'DCAdminBundle:Restaurant:edit',
+    'id'          => '-1'
+)));
+
 $collection->add('dc_admin_moderate_restaurant', new Route('/moderate/restaurants/{id}/{page}',array(
     '_controller' => 'DCAdminBundle:Restaurant:list',
     'id'          => '-1',
