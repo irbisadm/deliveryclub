@@ -276,7 +276,7 @@
             </div>
 
             <div class="span9">
-                <button type="{{ type|default('button') }}" class="{{ class }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+                <button type="{{ type|default('button') }}" class="{{ attr.class|default('btn') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
             </div>
         </div>
     </div>
