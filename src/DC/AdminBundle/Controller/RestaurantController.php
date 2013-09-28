@@ -40,9 +40,10 @@ class RestaurantController extends Controller
       if($form->isValid())
       {
         $em = $this->getDoctrine()->getManager();
+        $restaurant->removed = false;
         $em->persist($restaurant);
         $em->flush();
-        
+
         return $this->redirect($this->generateUrl('dc_admin_manage_restaurants'));
       }
       $params = array(
