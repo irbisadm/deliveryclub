@@ -9,10 +9,11 @@
 {% endblock form_row %} 
 
 {% block field_rows %}
+<div class="wholeform">
 {% spaceless %}
-фвафывафыва
     {% for child in form %}
         {{ form_row(child) }}
     {% endfor %}
 {% endspaceless %}
+</div>
 {% endblock field_rows %}
