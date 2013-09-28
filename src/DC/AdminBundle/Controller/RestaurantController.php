@@ -4,6 +4,7 @@ namespace DC\AdminBundle\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use DC\ShowcaseBundle\Entity\Restaurant;
 
 class RestaurantController extends Controller
 {
