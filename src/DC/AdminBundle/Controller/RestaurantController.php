@@ -37,7 +37,10 @@ class RestaurantController extends Controller
       }
       $form = $this->createForm('create_admin_restaurant', $restaurant);
       $form->handleRequest($request);
-      
+      if($form->isValid())
+      {
+
+      }
       $params = array(
         "form" => $form->createView()
       );
