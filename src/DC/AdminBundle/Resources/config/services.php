@@ -4,6 +4,16 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Parameter;
 
+$container
+    ->register(
+        'dc.form.type.restaurant',
+        'DC\ShowcaseBundle\Form\Type\CreateAdminRestaurantType'
+    )
+    ->addTag('form.type', array(
+        'alias' => 'create_admin_restaurant',
+    ))
+;
+
 /*
 
 $container->setDefinition(
