@@ -14,6 +14,20 @@
 {% endspaceless %}
 {% endblock form_row %} 
 
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+        <label generated="true" class="error">
+          <ul>
+              {% for error in errors %}
+                  <li>{{ error.message }}</li>
+              {% endfor %}
+          </ul>
+        </label>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
 
 {% block form_widget_compound %}
 <div class="span12">
