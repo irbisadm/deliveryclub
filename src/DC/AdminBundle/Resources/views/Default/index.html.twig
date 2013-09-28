@@ -1,4 +1,6 @@
+{% if form is not undefined %}
 {% form_theme form 'DCAdminBundle:Form:fields.html.twig' %}
+{% endif %}
 {% spaceless %}
 <!DOCTYPE html>
 <html {% block meta_lang %}lang="en"{% endblock %}>
