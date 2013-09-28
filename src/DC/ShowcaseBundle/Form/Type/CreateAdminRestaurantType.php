@@ -1,6 +1,6 @@
 <?php
 
-namespase DC\ShowcaseBundle\Form\Type;
+namespace DC\ShowcaseBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
