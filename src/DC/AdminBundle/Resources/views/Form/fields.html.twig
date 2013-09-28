@@ -7,22 +7,27 @@
     </div>
 {% endspaceless %}
 {% endblock form_row %} 
+
+
 {% block form_widget_compound %}
-hgjgjhgjhghjghjgjhgjgjhg
-<div {{ block('widget_container_attributes') }}>
-    {% if form.parent is empty %}
-        {{ form_errors(form) }}
-    {% endif %}
-    {% if form.vars.groups is defined %}
+<div class="span12">
+  <div class="widget_wrapper {{ block('widget_container_attributes') }}">
+    <div class="widget_header">
+      <h3 class="icos_pen">Input fields</h3>
+    </div>
+    <div class="widget_content no-padding">
+      {% if form.vars.groups is defined %}
         {% for group,items in form.vars.groups %}
         <fieldset>
-            <legend>{{ group|title|trans({}, translation_domain) }}</legend>
-            {% for item in items %}
-                {{ form_row(form[item]) }}
-            {% endfor %}
+          <legend>{{ group|title|trans({}, translation_domain) }}</legend>
+          {% for item in items %}
+            {{ form_row(form[item]) }}
+          {% endfor %}
         </fieldset>
         {% endfor %}
-    {% endif %}
-    {{ form_rest(form) }}
+      {% endif %}
+      {{ form_rest(form) }}
+    </div>
+  </div>
 </div>
 {% endblock form_widget_compound %}
