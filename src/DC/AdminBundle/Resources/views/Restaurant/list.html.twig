@@ -56,7 +56,7 @@
               </td>
               <td>{{ item.getName() }}<br><small>{{ item.getTitle() }}</small></td>
               <td>{{ item.getDescriprion() }}</td>
-              <td><a href="{{ path('dc_admin_edit_restaurants') }}/{{ item.getId() }}" title="Edit {{ item.getUsername() }} user">Edit</a></td>
+              <td><a href="{{ path('dc_admin_edit_restaurants') }}/{{ item.getId() }}" title="Edit {{ item.getName() }} user">Edit</a></td>
               </tr>
               {% endfor %}
             </tbody>
