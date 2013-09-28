@@ -39,7 +39,9 @@ class RestaurantController extends Controller
       $form->handleRequest($request);
       if($form->isValid())
       {
-
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($restaurant);
+        $em->flush();
       }
       $params = array(
         "form" => $form->createView()
