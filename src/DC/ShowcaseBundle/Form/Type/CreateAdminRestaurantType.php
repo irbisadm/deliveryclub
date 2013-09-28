@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 class CreateAdminRestaurantType extends AbstractType{
 
   public function buildForm(FormBuilderInterface $builder, array $options){
+    var_dump($builder);
+    var_dump($options);
+    die();
     $builder->add('restaurant')
             ->add('name','text')
             ->add('title','text')

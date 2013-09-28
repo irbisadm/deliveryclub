@@ -34,8 +34,6 @@ class RestaurantController extends Controller
                       ->getRepository('DCShowcaseBundle:Restaurant');
         $restaurant = $repository->findOneById($id);
       }
-      var_dump($restaurant);
-      die();
       $form = $this->createForm('create_admin_restaurant', $restaurant);
       $params = array(
         "form" => $form
