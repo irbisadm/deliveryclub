@@ -1,10 +1,16 @@
 {% block form_row %}
 {% spaceless %}
-    <div class="form_row">
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
+<div class="form_inputs clearfix">
+  <div class="row-fluid">
+    <div class="span2">
+      {{ form_label(form) }}
     </div>
+    <div class="span10">
+      {{ form_widget(form) }}
+      {{ form_errors(form) }}
+    </div>
+  </div>
+</div>
 {% endspaceless %}
 {% endblock form_row %} 
 
