@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespase DC\ShowcaseBundle\Form\Type
 
