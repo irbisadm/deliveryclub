@@ -27,8 +27,6 @@ class RestaurantController extends Controller
     }
 
     public function editAction($id,Request $request){
-      var_dump($id);
-      die();
       if($id!==-1){
         $restaurant = new Restaurant();
       }else{
@@ -36,6 +34,8 @@ class RestaurantController extends Controller
                       ->getManager()
                       ->getRepository('DCShowcaseBundle:Restaurant');
         $restaurant = $repository->findOneById($id);
+        var_dump($restaurant);
+        die();
       }
       $form = $this->createForm('create_admin_restaurant', $restaurant);
       $form->handleRequest($request);
