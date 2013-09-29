@@ -49,6 +49,8 @@ class RestaurantController extends Controller
       $params = array(
         "form" => $form->createView()
       );
+      if($id!==-1)
+        $params['restaurant'] = $restaurant;
       return $this->render('DCAdminBundle:Restaurant:edit.html.twig', $params);
     }
 

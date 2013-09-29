@@ -1,4 +1,7 @@
 {% extends 'DCAdminBundle:Default:index.html.twig' %}
 {% block content %}
   {{ form(form) }}
+  {# Дополнительное отображение для списка точек, доменов, администраторов и блюд #}
+  {% if restaurant is defined %}
+  {% endif %}
 {% endblock %} 
