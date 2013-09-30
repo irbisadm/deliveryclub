@@ -74,7 +74,7 @@ class Meal
 
     /**
      * @ORM\ManyToOne(targetEntity="Restaurant", inversedBy="dishes")
-     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
      protected $restaurant;
 

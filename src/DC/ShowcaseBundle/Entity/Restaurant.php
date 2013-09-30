@@ -60,6 +60,12 @@ class Restaurant
      * @ORM\OneToMany(targetEntity="ParkDomain", mappedBy="restaurant")
      */
 	protected $park_domains;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Meal", mappedBy="restaurant")
+     */
+    protected $meals;
+
     /**
      * Constructor
      */
