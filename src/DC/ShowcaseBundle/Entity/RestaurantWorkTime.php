@@ -97,6 +97,11 @@ class RestaurantWorkTime
      * @ORM\Column(type="boolean")
      */
     protected $sunday;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $interval;
 
     /**
      * @ORM\Column(type="boolean")
