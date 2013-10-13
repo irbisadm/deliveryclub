@@ -163,9 +163,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'dc_admin_bann_users')), array (  '_controller' => 'DC\\AdminBundle\\Controller\\UserController::bannAction',));
             }
 
-            // dc_admin_manage_restaurants
-            if (0 === strpos($pathinfo, '/restaurants') && preg_match('#^/restaurants(?:/(?P<search>[^/]++)(?:/(?P<page>[^/]++))?)?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dc_admin_manage_restaurants')), array (  '_controller' => 'DC\\AdminBundle\\Controller\\RestaurantController::listAction',  'search' => '-1',  'page' => '0',));
+            if (0 === strpos($pathinfo, '/restaurant')) {
+                // dc_admin_manage_restaurants
+                if (0 === strpos($pathinfo, '/restaurants') && preg_match('#^/restaurants(?:/(?P<search>[^/]++)(?:/(?P<page>[^/]++))?)?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dc_admin_manage_restaurants')), array (  '_controller' => 'DC\\AdminBundle\\Controller\\RestaurantController::listAction',  'search' => '-1',  'page' => '0',));
+                }
+
+                // dc_admin_edit_restaurants
+                if (preg_match('#^/restaurant(?:/(?P<id>[^/]++))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dc_admin_edit_restaurants')), array (  '_controller' => 'DC\\AdminBundle\\Controller\\RestaurantController::editAction',  'id' => '-1',));
+                }
+
             }
 
             if (0 === strpos($pathinfo, '/moderate')) {

@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /var/www/deliveryclub/app/config/routing_dev.yml
+    resource: /home/irbisadm/projects/deliveryclub/app/config/routing_dev.yml
