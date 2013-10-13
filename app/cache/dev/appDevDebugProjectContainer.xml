@@ -4,7 +4,7 @@
     <parameter key="kernel.root_dir">/var/www/deliveryclub/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">app</parameter>
+    <parameter key="kernel.name">ap_</parameter>
     <parameter key="kernel.cache_dir">/var/www/deliveryclub/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/var/www/deliveryclub/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
@@ -1747,6 +1747,7 @@
               <argument key="reset">form.type.reset</argument>
               <argument key="currency">form.type.currency</argument>
               <argument key="entity">form.type.entity</argument>
+              <argument key="create_admin_restaurant">dc.form.type.restaurant</argument>
             </argument>
             <argument type="collection">
               <argument key="form" type="collection">
@@ -3010,6 +3011,9 @@
     </service>
     <service id="sensio_framework_extra.cache.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener">
       <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="dc.form.type.restaurant" class="DC\ShowcaseBundle\Form\Type\CreateAdminRestaurantType">
+      <tag name="form.type" alias="create_admin_restaurant"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>

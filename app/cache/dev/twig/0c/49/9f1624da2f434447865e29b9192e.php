@@ -30,7 +30,7 @@ class __TwigTemplate_0c499f1624da2f434447865e29b9192e extends Twig_Template
     {
         // line 4
         echo "<div class=\"container\">
-
+laskjdbaskjfbhalsbdflhasbdfkasbdfjbasdfkjabsfv hbasdj;kbasklfvbaxzklBfvJHBZljkhbaxszlHFDVKLHbaejdb
       <div class=\"row row-offcanvas row-offcanvas-left\">
       \t<div class=\"col-xs-6 col-sm-3 sidebar-offcanvas\" id=\"sidebar\" role=\"navigation\">
           <div class=\"well sidebar-nav\">

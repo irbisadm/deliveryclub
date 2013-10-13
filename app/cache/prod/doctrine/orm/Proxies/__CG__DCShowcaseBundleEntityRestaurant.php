@@ -186,7 +186,7 @@ class Restaurant extends \DC\ShowcaseBundle\Entity\Restaurant implements \Doctri
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'title', 'descriprion', 'notifEmail', 'isSendingAllOrders', 'active', 'removed', 'places', 'park_domains');
+        return array('__isInitialized__', 'id', 'name', 'title', 'descriprion', 'notifEmail', 'isSendingAllOrders', 'active', 'removed', 'places', 'park_domains', 'meals');
     }
 
     public function __clone()

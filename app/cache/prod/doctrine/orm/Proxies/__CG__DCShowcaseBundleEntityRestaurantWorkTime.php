@@ -270,7 +270,7 @@ class RestaurantWorkTime extends \DC\ShowcaseBundle\Entity\RestaurantWorkTime im
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'startSpan', 'endSpan', 'work', 'description', 'delivery', 'minDeliverySumm', 'maxDeliverySumm', 'deliveryPrice', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'active', 'removed', 'place');
+        return array('__isInitialized__', 'id', 'startSpan', 'endSpan', 'work', 'description', 'delivery', 'minDeliverySumm', 'maxDeliverySumm', 'deliveryPrice', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'interval', 'active', 'removed', 'place');
     }
 
     public function __clone()
